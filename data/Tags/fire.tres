@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Tag" load_steps=2 format=3 uid="uid://3kgxdkin3pwq"]
+
+[ext_resource type="Script" uid="uid://biv1yhdgo3a0y" path="res://src/Cards/tag.gd" id="1_a7o54"]
+
+[resource]
+script = ExtResource("1_a7o54")
+tagName = "Fire"
+metadata/_custom_type_script = "uid://biv1yhdgo3a0y"

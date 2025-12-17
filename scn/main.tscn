@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://dw0hj4gdm6be6"]
+[gd_scene load_steps=3 format=3 uid="uid://dw0hj4gdm6be6"]
+
+[ext_resource type="Script" uid="uid://dsttl6tdlg7d1" path="res://scn/test.gd" id="1_7rek1"]
+[ext_resource type="Resource" uid="uid://1uti7nwtpq3" path="res://data/Decks/testDeck.tres" id="4_gyckk"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_7rek1")
+deck = ExtResource("4_gyckk")
