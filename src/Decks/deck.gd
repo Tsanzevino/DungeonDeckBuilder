@@ -2,6 +2,8 @@
 ## When a deck is played all the way through, it is reshuffled and played from the top.
 class_name Deck extends Resource
 
+enum Position{HAND,DISCARD,STOCK,TOP_DISCARD,TOP_STOCK}
+
 ## A list of the cards in the deck in no particular order.
 @export var cards : Array[Card] = []
 
@@ -37,6 +39,14 @@ func draw() -> Card:
 func shuffle() -> void:
 	while discard.size() > 0:
 		stock.push_back(discard.pop_at(randi() % discard.size()))
+
+func get_cards(position : Position) -> Array[Card]:
+	if position == Position.HAND: return hand
+	if position == Position.DISCARD: return discard
+	if position == Position.STOCK: return stock
+	if position == Position.TOP_DISCARD: return discard.back() if discard.back() != null else []
+	if position == Position.TOP_STOCK: return stock.back() if stock.back() != null else []
+	return []
 
 func _to_string() -> String:
 	var out : String = ""
