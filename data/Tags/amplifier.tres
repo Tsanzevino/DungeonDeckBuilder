@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Tag" load_steps=2 format=3 uid="uid://2eu8oxqgjgxj"]
-
-[ext_resource type="Script" uid="uid://biv1yhdgo3a0y" path="res://src/Cards/tag.gd" id="1_7sor1"]
-
-[resource]
-script = ExtResource("1_7sor1")
-tagName = "Amplifier"
-metadata/_custom_type_script = "uid://biv1yhdgo3a0y"

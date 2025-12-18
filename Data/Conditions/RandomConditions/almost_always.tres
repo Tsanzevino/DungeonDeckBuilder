@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RandomCondition" load_steps=2 format=3 uid="uid://c0m0ahl8yd4km"]
+
+[ext_resource type="Script" uid="uid://cwsft83b6kwp1" path="res://Source/Conditions/random_condition.gd" id="1_l8h6f"]
+
+[resource]
+script = ExtResource("1_l8h6f")
+chance = 0.9
+metadata/_custom_type_script = "uid://cwsft83b6kwp1"

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk4llcww24y4g"]
+
+[ext_resource type="Script" uid="uid://dosqkiw4rqbvb" path="res://Source/Player/player.gd" id="1_rpqav"]
+[ext_resource type="Script" uid="uid://d0b24owbxwual" path="res://Source/Player/Movement/movement_state_machine.gd" id="2_dewec"]
+[ext_resource type="Script" uid="uid://ff37ncds4o4p" path="res://Source/Player/Movement/idle.gd" id="3_5ixxa"]
+[ext_resource type="Script" uid="uid://bbwyadf3w721b" path="res://Source/Player/Movement/walking.gd" id="4_nn08x"]
+[ext_resource type="Script" uid="uid://bhr23h1dlmwi8" path="res://Source/Player/Movement/sprinting.gd" id="5_5ixxa"]
+[ext_resource type="Texture2D" uid="uid://cdsarnaoehwwt" path="res://icon.svg" id="6_nn08x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qbkls"]
+radius = 70.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rpqav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qbkls")
+
+[node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_dewec")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://d0b24owbxwual"
+
+[node name="Idle" type="Node" parent="MovementStateMachine"]
+script = ExtResource("3_5ixxa")
+
+[node name="Walking" type="Node" parent="MovementStateMachine"]
+script = ExtResource("4_nn08x")
+
+[node name="Sprinting" type="Node" parent="MovementStateMachine"]
+script = ExtResource("5_5ixxa")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_nn08x")
