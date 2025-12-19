@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0uns41g1vi3p"]
+[gd_scene load_steps=12 format=3 uid="uid://b0uns41g1vi3p"]
 
 [ext_resource type="Script" uid="uid://0hjy8to7gg11" path="res://Source/UI/user_interface_manager.gd" id="1_f0coe"]
 [ext_resource type="PackedScene" uid="uid://bm034r6f1rjx8" path="res://Scenes/DeckUserInterface.tscn" id="2_bg34t"]
@@ -26,6 +26,43 @@ gradient = SubResource("Gradient_ealbd")
 fill_from = Vector2(1, 1)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="Animation" id="Animation_bg34t"]
+resource_name = "wobble"
+length = 0.80000335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336, 0.6, 0.6666667, 0.73333335, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, 0.0, -0.08726646, -6.5018573e-09, 0.08726646, 0.0, -0.08726646, 6.501861e-09, 0.08726644, -6.5018604e-09, -0.087266415, 3.2509295e-08]
+}
+
+[sub_resource type="Animation" id="Animation_ealbd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e08v0"]
+_data = {
+&"RESET": SubResource("Animation_ealbd"),
+&"wobble": SubResource("Animation_bg34t")
+}
+
 [node name="UserInterfaceManager" type="CanvasLayer"]
 script = ExtResource("1_f0coe")
 
@@ -50,15 +87,24 @@ unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.85
 anchor_top = 0.7
-anchor_right = 0.9
-anchor_bottom = 0.90000004
+anchor_right = 0.90200007
+anchor_bottom = 0.88500005
+offset_right = 0.095825195
+offset_bottom = 0.11993408
 grow_horizontal = 0
 grow_vertical = 2
+pivot_offset = Vector2(30, 60)
 value = 100.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_bg34t")
 texture_progress = SubResource("GradientTexture2D_e08v0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mana"]
+libraries = {
+&"": SubResource("AnimationLibrary_e08v0")
+}
+speed_scale = 1.5
 
 [node name="DeckUserInterface" parent="." instance=ExtResource("2_bg34t")]
 unique_name_in_owner = true

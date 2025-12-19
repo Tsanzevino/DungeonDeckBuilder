@@ -19,6 +19,7 @@ func consume(amount : float) -> bool:
 	if amount == 0.0: return true
 	if mana - amount < 0: 
 		DebugLogger.info("Mana could not be consumed: Not enough mana.")
+		not_enough_mana.emit()
 		return false
 	mana -= amount
 	timer = 0
@@ -34,3 +35,5 @@ func _process(delta: float) -> void:
 		DebugLogger.info("Mana Full")
 
 signal max_mana
+
+signal not_enough_mana
