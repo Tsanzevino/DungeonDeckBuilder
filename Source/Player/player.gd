@@ -1,18 +1,21 @@
 class_name Player extends CharacterBody2D
 
 @export var deck : Deck
+@onready var health : Health = %Health
+@onready var mana : Mana = %Mana
 
 func _ready() -> void:
 	deck.setup(self)
+	%UserInterfaceManager.setup(mana, health, deck)
+	health.no_heath.connect(on_no_health)
+	health.max_health.connect(on_max_health)
+	mana.max_mana.connect(on_max_mana)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("use_card_1"):
-		deck.play_card(0)
-	if Input.is_action_just_pressed("use_card_2"):
-		deck.play_card(1)
-	if Input.is_action_just_pressed("use_card_3"):
-		deck.play_card(2)
-	if Input.is_action_just_pressed("use_card_4"):
-		deck.play_card(3)
-	if Input.is_action_just_pressed("use_card_5"):
-		deck.play_card(4)
+func on_max_mana():
+	pass
+
+func on_no_health():
+	pass
+
+func on_max_health():
+	pass

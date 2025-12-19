@@ -5,7 +5,7 @@ enum Mode{INFO,DEBUG,ERROR,NONE}
 var fileName : String = Time.get_time_string_from_system() + ".log"
 var folderName : String = Time.get_date_string_from_system() + "/"
 var loggingFolder : String = "user://custom-logs/"
-var printMode : Mode = Mode.DEBUG
+var printMode : Mode = Mode.INFO
 var fileMode : Mode = Mode.DEBUG
 
 var file : FileAccess

@@ -1,16 +1,13 @@
-[gd_resource type="Resource" script_class="AttackCard" load_steps=6 format=3 uid="uid://ub2qfsggjkwe"]
+[gd_resource type="Resource" script_class="AttackCard" load_steps=3 format=3 uid="uid://ub2qfsggjkwe"]
 
 [ext_resource type="Resource" uid="uid://tn1ky87j6fst" path="res://Data/Attacks/short_sword_attack.tres" id="1_8gg4v"]
-[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Conditions/condition.gd" id="2_fqms0"]
-[ext_resource type="Resource" uid="uid://c0m0ahl8yd4km" path="res://Data/Conditions/RandomConditions/almost_always.tres" id="3_8gg4v"]
 [ext_resource type="Script" uid="uid://c2sjxl8huc5" path="res://Source/Cards/attack_card.gd" id="4_y50ax"]
-[ext_resource type="Script" uid="uid://biv1yhdgo3a0y" path="res://Source/Cards/tag.gd" id="5_yf34g"]
 
 [resource]
 script = ExtResource("4_y50ax")
 attack = ExtResource("1_8gg4v")
+breakChance = 0.5
 name = "Rusted Sword"
 description = "A pretty shitty sword...and it looks like it might break soon :0"
-conditions = Array[ExtResource("2_fqms0")]([ExtResource("3_8gg4v")])
-conditionEffect = 1
+manaCost = 10.0
 metadata/_custom_type_script = "uid://c2sjxl8huc5"

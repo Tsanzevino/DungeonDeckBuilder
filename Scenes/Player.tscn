@@ -1,20 +1,33 @@
-[gd_scene load_steps=8 format=3 uid="uid://bk4llcww24y4g"]
+[gd_scene load_steps=13 format=3 uid="uid://bk4llcww24y4g"]
 
 [ext_resource type="Script" uid="uid://dosqkiw4rqbvb" path="res://Source/Player/player.gd" id="1_rpqav"]
 [ext_resource type="Script" uid="uid://d0b24owbxwual" path="res://Source/Player/Movement/movement_state_machine.gd" id="2_dewec"]
+[ext_resource type="Resource" uid="uid://bv36nsscfsr1l" path="res://Data/Decks/player_deck.tres" id="2_glx4g"]
+[ext_resource type="Shape2D" uid="uid://fqhrh3dro0nj" path="res://Data/Player/player_collision_shape.tres" id="2_yoq75"]
 [ext_resource type="Script" uid="uid://ff37ncds4o4p" path="res://Source/Player/Movement/idle.gd" id="3_5ixxa"]
 [ext_resource type="Script" uid="uid://bbwyadf3w721b" path="res://Source/Player/Movement/walking.gd" id="4_nn08x"]
 [ext_resource type="Script" uid="uid://bhr23h1dlmwi8" path="res://Source/Player/Movement/sprinting.gd" id="5_5ixxa"]
 [ext_resource type="Texture2D" uid="uid://cdsarnaoehwwt" path="res://icon.svg" id="6_nn08x"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qbkls"]
-radius = 70.0
+[ext_resource type="Script" uid="uid://b04084yg56be0" path="res://Source/Components/mana.gd" id="8_ksbbd"]
+[ext_resource type="Script" uid="uid://dp4w212aij0sp" path="res://Source/Components/health.gd" id="9_glx4g"]
+[ext_resource type="Script" uid="uid://bcceqc2f8hmnr" path="res://Source/Components/hurtbox.gd" id="10_miouo"]
+[ext_resource type="PackedScene" uid="uid://b0uns41g1vi3p" path="res://Scenes/UserInterfaceManager.tscn" id="11_ksbbd"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rpqav")
+deck = ExtResource("2_glx4g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("6_nn08x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_qbkls")
+shape = ExtResource("2_yoq75")
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_dewec")
@@ -30,16 +43,24 @@ script = ExtResource("4_nn08x")
 [node name="Sprinting" type="Node" parent="MovementStateMachine"]
 script = ExtResource("5_5ixxa")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_nn08x")
+[node name="Mana" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_ksbbd")
+manaChargeCooldown = 1.0
+metadata/_custom_type_script = "uid://b04084yg56be0"
+
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_glx4g")
+maxHealth = 10.0
+metadata/_custom_type_script = "uid://dp4w212aij0sp"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("10_miouo")
+metadata/_custom_type_script = "uid://bcceqc2f8hmnr"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = ExtResource("2_yoq75")
+
+[node name="UserInterfaceManager" parent="." instance=ExtResource("11_ksbbd")]
+unique_name_in_owner = true

@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0uns41g1vi3p"]
+
+[ext_resource type="Script" uid="uid://0hjy8to7gg11" path="res://Source/UI/user_interface_manager.gd" id="1_f0coe"]
+[ext_resource type="PackedScene" uid="uid://bm034r6f1rjx8" path="res://Scenes/DeckUserInterface.tscn" id="2_bg34t"]
+
+[sub_resource type="Gradient" id="Gradient_f0coe"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bg34t"]
+gradient = SubResource("Gradient_f0coe")
+
+[sub_resource type="Gradient" id="Gradient_bg34t"]
+colors = PackedColorArray(0.69803923, 0, 0, 1, 1, 0.39770123, 0.3292555, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ealbd"]
+gradient = SubResource("Gradient_bg34t")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_ealbd"]
+offsets = PackedFloat32Array(0.0070422534, 1)
+colors = PackedColorArray(0.43529412, 0.29411766, 0.8392157, 1, 0.25882354, 0.627451, 0.8980392, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e08v0"]
+gradient = SubResource("Gradient_ealbd")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[node name="UserInterfaceManager" type="CanvasLayer"]
+script = ExtResource("1_f0coe")
+
+[node name="Health" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.7
+anchor_right = 0.15
+anchor_bottom = 0.90000004
+offset_right = -0.00012207031
+grow_horizontal = 0
+grow_vertical = 2
+value = 96.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_bg34t")
+texture_progress = SubResource("GradientTexture2D_ealbd")
+
+[node name="Mana" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.85
+anchor_top = 0.7
+anchor_right = 0.9
+anchor_bottom = 0.90000004
+grow_horizontal = 0
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_bg34t")
+texture_progress = SubResource("GradientTexture2D_e08v0")
+
+[node name="DeckUserInterface" parent="." instance=ExtResource("2_bg34t")]
+unique_name_in_owner = true

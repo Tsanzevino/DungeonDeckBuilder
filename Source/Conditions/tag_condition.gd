@@ -1,7 +1,7 @@
 ## A Tag Condition is satisfied when the target has the specified tag.
 class_name TagCondition extends Condition
 
-@export var tag : Tag
+@export var tag : Card.Tag
 
 @export var target : Deck.Position
 

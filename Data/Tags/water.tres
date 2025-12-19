@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Tag" load_steps=2 format=3 uid="uid://ccmtyyqxqtm4l"]
-
-[ext_resource type="Script" uid="uid://biv1yhdgo3a0y" path="res://Source/Cards/tag.gd" id="1_kqoym"]
-
-[resource]
-script = ExtResource("1_kqoym")
-tagName = "Water"
-metadata/_custom_type_script = "uid://biv1yhdgo3a0y"

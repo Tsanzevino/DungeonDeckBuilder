@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://c6v3eob68okdc"]
+
+[ext_resource type="Script" uid="uid://brujh7cqm7c1g" path="res://Source/Attacks/attack.gd" id="1_54t8k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54t8k"]
+radius = 12.0
+
+[resource]
+script = ExtResource("1_54t8k")
+damage = 5.0
+aoe = SubResource("CircleShape2D_54t8k")
+offset = Vector2(20, 0)
+duration = 0.7
+windup = 0.5
+metadata/_custom_type_script = "uid://brujh7cqm7c1g"

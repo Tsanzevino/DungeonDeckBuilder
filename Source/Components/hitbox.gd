@@ -1,5 +1,7 @@
-## The hurtbox is what recieves the damage from a hitbox
+## The hitbox tells a hurtbox that it is within range of an attack
 class_name Hitbox extends Area2D
+
+signal attack_finished
 
 @export var attack : Attack
 
@@ -29,4 +31,5 @@ func windup_finished(cs : CollisionShape2D):
 	timer.timeout.connect(duration_finished)
 
 func duration_finished():
+	attack_finished.emit()
 	queue_free()

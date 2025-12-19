@@ -21,6 +21,10 @@ var owner : Player
 
 func setup(p : Player) -> void:
 	owner = p
+	var newCards : Array[Card] = []
+	for i in range(cards.size() - 1, -1,-1):
+		newCards.append(cards[i].duplicate_deep())
+	cards = newCards
 	stock.append_array(cards)
 	for n in handSize:
 		hand.push_back(draw())
@@ -28,9 +32,9 @@ func setup(p : Player) -> void:
 func play_card(index : int) -> Card:
 	if index >= handSize: return null
 	var playedCard : Card = hand[index]
+	if not playedCard.play(owner): return playedCard
 	discard.push_back(playedCard)
 	hand[index] = draw()
-	playedCard.play(owner)
 	return playedCard
 
 func draw() -> Card:

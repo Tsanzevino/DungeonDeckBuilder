@@ -1,119 +1,12 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=23 format=3 uid="uid://bv36nsscfsr1l"]
+[gd_resource type="Resource" script_class="Deck" load_steps=6 format=3 uid="uid://bv36nsscfsr1l"]
 
 [ext_resource type="Script" uid="uid://cnww134qe3ifi" path="res://Source/Cards/card.gd" id="1_cjpmr"]
-[ext_resource type="Script" uid="uid://brujh7cqm7c1g" path="res://Source/Attacks/attack.gd" id="2_5moe4"]
+[ext_resource type="Resource" uid="uid://ub2qfsggjkwe" path="res://Data/Cards/rusted_sword.tres" id="2_i24a4"]
 [ext_resource type="Script" uid="uid://cm56wcp4kbgk5" path="res://Source/Decks/deck.gd" id="2_v0nrc"]
-[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Conditions/condition.gd" id="3_l15ig"]
-[ext_resource type="Resource" uid="uid://c0m0ahl8yd4km" path="res://Data/Conditions/RandomConditions/almost_always.tres" id="4_a3e4n"]
-[ext_resource type="Script" uid="uid://c2sjxl8huc5" path="res://Source/Cards/attack_card.gd" id="5_gbxjo"]
-[ext_resource type="Script" uid="uid://biv1yhdgo3a0y" path="res://Source/Cards/tag.gd" id="6_t2f47"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_l15ig"]
-radius = 50.0
-
-[sub_resource type="Resource" id="Resource_a3e4n"]
-script = ExtResource("2_5moe4")
-damage = 1.0
-aoe = SubResource("CircleShape2D_l15ig")
-offset = Vector2(50, 0)
-duration = 0.5
-windup = 0.1
-metadata/_custom_type_script = "uid://brujh7cqm7c1g"
-
-[sub_resource type="Resource" id="Resource_gbxjo"]
-script = ExtResource("5_gbxjo")
-attack = SubResource("Resource_a3e4n")
-name = "Rusted Sword"
-description = "A pretty shitty sword...and it looks like it might break soon :0"
-conditions = Array[ExtResource("3_l15ig")]([ExtResource("4_a3e4n")])
-conditionEffect = 1
-metadata/_custom_type_script = "uid://c2sjxl8huc5"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_t2f47"]
-radius = 50.0
-
-[sub_resource type="Resource" id="Resource_yctat"]
-script = ExtResource("2_5moe4")
-damage = 1.0
-aoe = SubResource("CircleShape2D_t2f47")
-offset = Vector2(50, 0)
-duration = 0.5
-windup = 0.1
-metadata/_custom_type_script = "uid://brujh7cqm7c1g"
-
-[sub_resource type="Resource" id="Resource_2sqc0"]
-script = ExtResource("5_gbxjo")
-attack = SubResource("Resource_yctat")
-name = "Rusted Sword"
-description = "A pretty shitty sword...and it looks like it might break soon :0"
-conditions = Array[ExtResource("3_l15ig")]([ExtResource("4_a3e4n")])
-conditionEffect = 1
-metadata/_custom_type_script = "uid://c2sjxl8huc5"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_04b82"]
-radius = 50.0
-
-[sub_resource type="Resource" id="Resource_8wgsr"]
-script = ExtResource("2_5moe4")
-damage = 1.0
-aoe = SubResource("CircleShape2D_04b82")
-offset = Vector2(50, 0)
-duration = 0.5
-windup = 0.1
-metadata/_custom_type_script = "uid://brujh7cqm7c1g"
-
-[sub_resource type="Resource" id="Resource_tfm22"]
-script = ExtResource("5_gbxjo")
-attack = SubResource("Resource_8wgsr")
-name = "Rusted Sword"
-description = "A pretty shitty sword...and it looks like it might break soon :0"
-conditions = Array[ExtResource("3_l15ig")]([ExtResource("4_a3e4n")])
-conditionEffect = 1
-metadata/_custom_type_script = "uid://c2sjxl8huc5"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_lfmwg"]
-radius = 50.0
-
-[sub_resource type="Resource" id="Resource_k6xoy"]
-script = ExtResource("2_5moe4")
-damage = 1.0
-aoe = SubResource("CircleShape2D_lfmwg")
-offset = Vector2(50, 0)
-duration = 0.5
-windup = 0.1
-metadata/_custom_type_script = "uid://brujh7cqm7c1g"
-
-[sub_resource type="Resource" id="Resource_4difb"]
-script = ExtResource("5_gbxjo")
-attack = SubResource("Resource_k6xoy")
-name = "Rusted Sword"
-description = "A pretty shitty sword...and it looks like it might break soon :0"
-conditions = Array[ExtResource("3_l15ig")]([ExtResource("4_a3e4n")])
-conditionEffect = 1
-metadata/_custom_type_script = "uid://c2sjxl8huc5"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vdh1t"]
-radius = 50.0
-
-[sub_resource type="Resource" id="Resource_3pvb4"]
-script = ExtResource("2_5moe4")
-damage = 1.0
-aoe = SubResource("CircleShape2D_vdh1t")
-offset = Vector2(50, 0)
-duration = 0.5
-windup = 0.1
-metadata/_custom_type_script = "uid://brujh7cqm7c1g"
-
-[sub_resource type="Resource" id="Resource_gnxb8"]
-script = ExtResource("5_gbxjo")
-attack = SubResource("Resource_3pvb4")
-name = "Rusted Sword"
-description = "A pretty shitty sword...and it looks like it might break soon :0"
-conditions = Array[ExtResource("3_l15ig")]([ExtResource("4_a3e4n")])
-conditionEffect = 1
-metadata/_custom_type_script = "uid://c2sjxl8huc5"
+[ext_resource type="Resource" uid="uid://broe4d4c6mte" path="res://Data/Cards/sturdy_shortsword.tres" id="3_i24a4"]
+[ext_resource type="Resource" uid="uid://ln8jhhs7ypth" path="res://Data/Cards/fireball.tres" id="4_2qtju"]
 
 [resource]
 script = ExtResource("2_v0nrc")
-cards = Array[ExtResource("1_cjpmr")]([SubResource("Resource_gbxjo"), SubResource("Resource_2sqc0"), SubResource("Resource_tfm22"), SubResource("Resource_4difb"), SubResource("Resource_gnxb8")])
+cards = Array[ExtResource("1_cjpmr")]([ExtResource("3_i24a4"), ExtResource("2_i24a4"), ExtResource("2_i24a4"), ExtResource("2_i24a4"), ExtResource("4_2qtju")])
 metadata/_custom_type_script = "uid://cm56wcp4kbgk5"

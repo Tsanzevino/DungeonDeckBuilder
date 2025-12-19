@@ -6,11 +6,12 @@ func _ready() -> void:
 	collision_layer = 32
 	collision_mask = 16
 	monitorable = false
+	area_entered.connect(on_area_entered)
 	setup()
 
 func setup() -> void:
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_area_entered(area : Area2D) -> void:
+	if area is Hitbox:
+		pass
