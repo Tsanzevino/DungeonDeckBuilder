@@ -14,6 +14,14 @@ var enemy : Enemy
 
 func handle_input(_event: InputEvent) -> void: pass
 
-func move_direction() -> Vector2:
+func chase_direction() -> Vector2:
 	if enemy.nearest_player() == null: return Vector2.ZERO
-	return (enemy.nearest_player().global_position - enemy.global_position).normalized()
+	enemy.get_nav().target_position = enemy.nearest_player().global_position
+	return (enemy.get_nav().get_next_path_position() - enemy.global_position).normalized()
+
+func start_chase():
+	enemy.get_nav().target_position = enemy.nearest_player().global_position
+
+func flee_direction() -> Vector2:
+	if enemy.nearest_player() == null: return Vector2.ZERO
+	return (enemy.global_position - enemy.nearest_player().global_position).normalized()

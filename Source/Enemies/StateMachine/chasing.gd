@@ -6,7 +6,7 @@ func update(_delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	enemy.velocity = lerp(enemy.velocity, move_direction() * CHASE_MOVE_SPEED,delta * GROUND_FRICTION)
+	enemy.velocity = lerp(enemy.velocity, chase_direction() * CHASE_MOVE_SPEED, delta * GROUND_FRICTION)
 	enemy.move_and_slide()
 	
 	if not enemy.player_spotted(): 
@@ -21,7 +21,7 @@ func physics_update(delta: float) -> void:
 	finished.emit(FLEEING)
 
 func enter(_previous_state_path: String, _data := {}) -> void:
-	pass
+	start_chase()
 
 func exit() -> void:
 	pass

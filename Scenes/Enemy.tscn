@@ -25,6 +25,20 @@ shape = ExtResource("2_0o0ue")
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_m1htj")
 
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_idouy")
+maxHealth = 5.0
+metadata/_custom_type_script = "uid://dp4w212aij0sp"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("11_6s1gy")
+metadata/_custom_type_script = "uid://bcceqc2f8hmnr"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = ExtResource("2_0o0ue")
+
 [node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_6bs3c")
 initial_state = NodePath("Idle")
@@ -45,12 +59,13 @@ script = ExtResource("7_6s1gy")
 [node name="ChaseRange" type="Area2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("8_uoxpr")
-radius = 100.0
+radius = 500.0
 metadata/_custom_type_script = "uid://do222lj53766q"
 
 [node name="AttackRange" type="Area2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("8_uoxpr")
+radius = 25.0
 metadata/_custom_type_script = "uid://do222lj53766q"
 
 [node name="FleeRange" type="Area2D" parent="."]
@@ -59,16 +74,6 @@ script = ExtResource("8_uoxpr")
 radius = 10.0
 metadata/_custom_type_script = "uid://do222lj53766q"
 
-[node name="Health" type="Node" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("9_idouy")
-maxHealth = 5.0
-metadata/_custom_type_script = "uid://dp4w212aij0sp"
-
-[node name="Hurtbox" type="Area2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("11_6s1gy")
-metadata/_custom_type_script = "uid://bcceqc2f8hmnr"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = ExtResource("2_0o0ue")
+debug_enabled = true

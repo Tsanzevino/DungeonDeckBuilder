@@ -23,3 +23,6 @@ func player_too_close() -> bool:
 
 func nearest_player() -> Player:
 	return %ChaseRange.nearestPlayer
+
+func get_nav() -> NavigationAgent2D:
+	return %NavigationAgent2D
