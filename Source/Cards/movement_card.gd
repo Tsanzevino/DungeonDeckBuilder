@@ -1,6 +1,8 @@
-class_name MovementCard extends Card
+class_name SprintCard extends Card
 
-@export var uses : int
+@export var duration : float
 
 func play(player : Player) -> bool:
-	return false
+	if not consume_mana(player): return false
+	player.add_sprint_duration(duration)
+	return true

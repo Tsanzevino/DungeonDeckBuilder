@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="AttackCard" load_steps=3 format=3 uid="uid://ub2qfsggjkwe"]
+[gd_resource type="Resource" script_class="AttackCard" load_steps=4 format=3 uid="uid://ub2qfsggjkwe"]
 
 [ext_resource type="Resource" uid="uid://tn1ky87j6fst" path="res://Data/Attacks/short_sword_attack.tres" id="1_8gg4v"]
+[ext_resource type="Texture2D" uid="uid://dwd4o74quq4la" path="res://Data/Cards/rusty_shortsword.png" id="2_a4wt8"]
 [ext_resource type="Script" uid="uid://c2sjxl8huc5" path="res://Source/Cards/attack_card.gd" id="4_y50ax"]
 
 [resource]
@@ -10,4 +11,5 @@ breakChance = 0.5
 name = "Rusted Sword"
 description = "A pretty shitty sword...and it looks like it might break soon :0"
 manaCost = 10.0
+displayImage = ExtResource("2_a4wt8")
 metadata/_custom_type_script = "uid://c2sjxl8huc5"

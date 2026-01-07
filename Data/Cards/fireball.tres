@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="AttackCard" load_steps=3 format=3 uid="uid://ln8jhhs7ypth"]
+[gd_resource type="Resource" script_class="AttackCard" load_steps=4 format=3 uid="uid://ln8jhhs7ypth"]
 
 [ext_resource type="Script" uid="uid://c2sjxl8huc5" path="res://Source/Cards/attack_card.gd" id="1_7uhkj"]
 [ext_resource type="Resource" uid="uid://c6v3eob68okdc" path="res://Data/Attacks/fireball.tres" id="1_fu1ks"]
+[ext_resource type="Texture2D" uid="uid://dik5y3w0e6n0g" path="res://Data/Cards/fireball.png" id="2_uypnn"]
 
 [resource]
 script = ExtResource("1_7uhkj")
@@ -9,5 +10,6 @@ attack = ExtResource("1_fu1ks")
 name = "Fireball Spell"
 description = "The pinnacle of magic lore, somehow known by every wizard alive"
 manaCost = 25.0
+displayImage = ExtResource("2_uypnn")
 tags = Array[int]([1, 3])
 metadata/_custom_type_script = "uid://c2sjxl8huc5"

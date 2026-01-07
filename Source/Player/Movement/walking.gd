@@ -7,7 +7,7 @@ func physics_update(delta: float) -> void:
 	
 	# Check to leave the state
 	if direction.length() > DEADZONE_SIZE:
-		if Input.is_action_pressed("sprint"):
+		if player.can_sprint():
 			finished.emit(SPRINTING)
 	else: finished.emit(IDLE)
 

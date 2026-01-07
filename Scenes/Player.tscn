@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bk4llcww24y4g"]
+[gd_scene load_steps=14 format=3 uid="uid://bk4llcww24y4g"]
 
 [ext_resource type="Script" uid="uid://dosqkiw4rqbvb" path="res://Source/Player/player.gd" id="1_rpqav"]
 [ext_resource type="Script" uid="uid://d0b24owbxwual" path="res://Source/Player/Movement/movement_state_machine.gd" id="2_dewec"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cdsarnaoehwwt" path="res://icon.svg" id="6_nn08x"]
 [ext_resource type="Script" uid="uid://b04084yg56be0" path="res://Source/Components/mana.gd" id="8_ksbbd"]
 [ext_resource type="Script" uid="uid://dp4w212aij0sp" path="res://Source/Components/health.gd" id="9_glx4g"]
+[ext_resource type="Script" uid="uid://dy8c5hkdbfvc3" path="res://Source/Player/Movement/attacking.gd" id="9_miouo"]
 [ext_resource type="Script" uid="uid://bcceqc2f8hmnr" path="res://Source/Components/hurtbox.gd" id="10_miouo"]
 [ext_resource type="PackedScene" uid="uid://b0uns41g1vi3p" path="res://Scenes/UserInterfaceManager.tscn" id="11_ksbbd"]
 
@@ -30,6 +31,7 @@ texture = ExtResource("6_nn08x")
 shape = ExtResource("2_yoq75")
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
 script = ExtResource("2_dewec")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://d0b24owbxwual"
@@ -42,6 +44,9 @@ script = ExtResource("4_nn08x")
 
 [node name="Sprinting" type="Node" parent="MovementStateMachine"]
 script = ExtResource("5_5ixxa")
+
+[node name="Attacking" type="Node" parent="MovementStateMachine"]
+script = ExtResource("9_miouo")
 
 [node name="Mana" type="Node" parent="."]
 unique_name_in_owner = true

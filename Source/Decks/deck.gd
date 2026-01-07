@@ -53,8 +53,8 @@ func get_cards(position : Position) -> Array[Card]:
 	if position == Position.HAND: return hand
 	if position == Position.DISCARD: return discard
 	if position == Position.STOCK: return stock
-	if position == Position.TOP_DISCARD: return discard.back() if discard.back() != null else []
-	if position == Position.TOP_STOCK: return stock.back() if stock.back() != null else []
+	if position == Position.TOP_DISCARD: return discard.back() if discard.back() != null else ([] as Array[Card])
+	if position == Position.TOP_STOCK: return stock.back() if stock.back() != null else ([] as Array[Card])
 	return []
 
 func _to_string() -> String:

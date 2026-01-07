@@ -4,6 +4,7 @@ class_name Card extends Resource
 @export var name : String = ""
 @export var description : String = ""
 @export var manaCost : float = 0.0
+@export var displayImage : Texture2D
 
 @export var tags : Array[Tag] = []
 

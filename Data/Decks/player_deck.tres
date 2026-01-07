@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=6 format=3 uid="uid://bv36nsscfsr1l"]
+[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://bv36nsscfsr1l"]
 
 [ext_resource type="Script" uid="uid://cnww134qe3ifi" path="res://Source/Cards/card.gd" id="1_cjpmr"]
 [ext_resource type="Resource" uid="uid://ub2qfsggjkwe" path="res://Data/Cards/rusted_sword.tres" id="2_i24a4"]
 [ext_resource type="Script" uid="uid://cm56wcp4kbgk5" path="res://Source/Decks/deck.gd" id="2_v0nrc"]
 [ext_resource type="Resource" uid="uid://broe4d4c6mte" path="res://Data/Cards/sturdy_shortsword.tres" id="3_i24a4"]
 [ext_resource type="Resource" uid="uid://ln8jhhs7ypth" path="res://Data/Cards/fireball.tres" id="4_2qtju"]
+[ext_resource type="Resource" uid="uid://dyfpi77lyn17k" path="res://Data/Cards/sprint.tres" id="5_0i1dr"]
 
 [resource]
 script = ExtResource("2_v0nrc")
-cards = Array[ExtResource("1_cjpmr")]([ExtResource("3_i24a4"), ExtResource("2_i24a4"), ExtResource("2_i24a4"), ExtResource("2_i24a4"), ExtResource("4_2qtju")])
+cards = Array[ExtResource("1_cjpmr")]([ExtResource("3_i24a4"), ExtResource("2_i24a4"), ExtResource("2_i24a4"), ExtResource("2_i24a4"), ExtResource("4_2qtju"), ExtResource("4_2qtju"), ExtResource("5_0i1dr")])
 metadata/_custom_type_script = "uid://cm56wcp4kbgk5"
