@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b0uns41g1vi3p" path="res://Scenes/UserInterfaceManager.tscn" id="11_ksbbd"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_rpqav")
 deck = ExtResource("2_glx4g")
 
@@ -61,6 +62,7 @@ maxHealth = 10.0
 metadata/_custom_type_script = "uid://dp4w212aij0sp"
 
 [node name="Hurtbox" type="Area2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("10_miouo")
 metadata/_custom_type_script = "uid://bcceqc2f8hmnr"
 

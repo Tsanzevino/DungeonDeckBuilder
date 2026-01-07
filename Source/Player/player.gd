@@ -9,6 +9,7 @@ var sprintDuration : float = 0.0
 func _ready() -> void:
 	deck.setup(self)
 	%UserInterfaceManager.setup(mana, health, deck)
+	%Hurtbox.hurt.connect(health.damage)
 	health.no_heath.connect(on_no_health)
 	health.max_health.connect(on_max_health)
 	mana.max_mana.connect(on_max_mana)
