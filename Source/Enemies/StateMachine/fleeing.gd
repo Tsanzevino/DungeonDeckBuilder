@@ -6,7 +6,9 @@ func update(_delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	enemy.velocity = lerp(enemy.velocity, flee_direction() * FLEE_MOVE_SPEED, delta * GROUND_FRICTION)
+	var direction = flee_direction()
+	enemy.velocity = lerp(enemy.velocity, direction * FLEE_MOVE_SPEED, delta * GROUND_FRICTION)
+	enemy.look_at(enemy.global_position + direction)
 	enemy.move_and_slide()
 	
 	if not enemy.player_spotted(): 

@@ -1,15 +1,13 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://tn1ky87j6fst"]
+[gd_resource type="Resource" script_class="Attack" load_steps=4 format=3 uid="uid://tn1ky87j6fst"]
 
 [ext_resource type="Script" uid="uid://brujh7cqm7c1g" path="res://Source/Attacks/attack.gd" id="1_bugit"]
+[ext_resource type="Script" uid="uid://bhe2s8vededrx" path="res://Source/Resources/tween_template.gd" id="1_g17se"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bugit"]
-radius = 8.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_47hmh"]
+radius = 16.0
 
 [resource]
 script = ExtResource("1_bugit")
-damage = 2.0
-aoe = SubResource("CircleShape2D_bugit")
 offset = Vector2(0, -8)
-duration = 0.5
-windup = 0.1
+aoe = SubResource("CircleShape2D_47hmh")
 metadata/_custom_type_script = "uid://brujh7cqm7c1g"

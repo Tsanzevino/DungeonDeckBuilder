@@ -1,15 +1,23 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://c6v3eob68okdc"]
+[gd_resource type="Resource" script_class="Attack" load_steps=5 format=3 uid="uid://c6v3eob68okdc"]
 
 [ext_resource type="Script" uid="uid://brujh7cqm7c1g" path="res://Source/Attacks/attack.gd" id="1_54t8k"]
+[ext_resource type="Script" uid="uid://bhe2s8vededrx" path="res://Source/Resources/tween_template.gd" id="2_hsx8c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_54t8k"]
-radius = 12.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsx8c"]
+
+[sub_resource type="Resource" id="Resource_hsx8c"]
+script = ExtResource("2_hsx8c")
+propertyPath = "position"
+finalValue = Vector2(0, -50)
+duration = 0.7
+metadata/_custom_type_script = "uid://bhe2s8vededrx"
 
 [resource]
 script = ExtResource("1_54t8k")
-damage = 5.0
-aoe = SubResource("CircleShape2D_54t8k")
-offset = Vector2(0, -25)
-duration = 0.7
+damage = 3.0
 windup = 0.5
+offset = Vector2(0, -25)
+aoe = SubResource("CircleShape2D_hsx8c")
+propertyTweenTemplates = Array[ExtResource("2_hsx8c")]([SubResource("Resource_hsx8c")])
+topLevel = true
 metadata/_custom_type_script = "uid://brujh7cqm7c1g"

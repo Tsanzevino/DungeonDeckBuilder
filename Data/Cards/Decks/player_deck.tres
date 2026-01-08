@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=9 format=3 uid="uid://bv36nsscfsr1l"]
+
+[ext_resource type="Script" uid="uid://cnww134qe3ifi" path="res://Source/Cards/card.gd" id="1_quio5"]
+[ext_resource type="Resource" uid="uid://broe4d4c6mte" path="res://Data/Cards/Sturdy Shortsword/sturdy_shortsword.tres" id="2_kfrj0"]
+[ext_resource type="Resource" uid="uid://ub2qfsggjkwe" path="res://Data/Cards/Rusty Shortsword/rusted_sword.tres" id="3_4uh6u"]
+[ext_resource type="Resource" uid="uid://ln8jhhs7ypth" path="res://Data/Cards/Fireball/fireball.tres" id="4_kgj0h"]
+[ext_resource type="Resource" uid="uid://dyfpi77lyn17k" path="res://Data/Cards/Sprint/sprint.tres" id="5_av7v4"]
+[ext_resource type="Resource" uid="uid://d14tsjpim2vny" path="res://Data/Cards/Health Potion/health_potion.tres" id="6_ip1fj"]
+[ext_resource type="Resource" uid="uid://bx0h38v0k10kh" path="res://Data/Cards/Pocket Grindstone/pocket_grindstone.tres" id="7_f520w"]
+[ext_resource type="Script" uid="uid://cm56wcp4kbgk5" path="res://Source/Cards/Decks/deck.gd" id="8_s638l"]
+
+[resource]
+script = ExtResource("8_s638l")
+cards = Array[ExtResource("1_quio5")]([ExtResource("2_kfrj0"), ExtResource("3_4uh6u"), ExtResource("4_kgj0h"), ExtResource("4_kgj0h"), ExtResource("5_av7v4"), ExtResource("6_ip1fj"), ExtResource("7_f520w")])
+metadata/_custom_type_script = "uid://cm56wcp4kbgk5"

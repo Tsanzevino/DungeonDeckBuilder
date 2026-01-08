@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=4 format=3 uid="uid://ct6mg4mc06ya8"]
+
+[ext_resource type="Script" uid="uid://brujh7cqm7c1g" path="res://Source/Attacks/attack.gd" id="1_n0sya"]
+[ext_resource type="Script" uid="uid://bhe2s8vededrx" path="res://Source/Resources/tween_template.gd" id="1_sofcn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sofcn"]
+radius = 4.0
+
+[resource]
+script = ExtResource("1_n0sya")
+windup = 0.4
+offset = Vector2(0, -15)
+aoe = SubResource("CapsuleShape2D_sofcn")
+metadata/_custom_type_script = "uid://brujh7cqm7c1g"

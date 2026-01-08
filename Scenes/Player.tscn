@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dosqkiw4rqbvb" path="res://Source/Player/player.gd" id="1_rpqav"]
 [ext_resource type="Script" uid="uid://d0b24owbxwual" path="res://Source/Player/Movement/movement_state_machine.gd" id="2_dewec"]
-[ext_resource type="Resource" uid="uid://bv36nsscfsr1l" path="res://Data/Decks/player_deck.tres" id="2_glx4g"]
+[ext_resource type="Resource" uid="uid://bv36nsscfsr1l" path="res://Data/Cards/Decks/player_deck.tres" id="2_glx4g"]
 [ext_resource type="Shape2D" uid="uid://fqhrh3dro0nj" path="res://Data/Player/player_collision_shape.tres" id="2_yoq75"]
 [ext_resource type="Script" uid="uid://ff37ncds4o4p" path="res://Source/Player/Movement/idle.gd" id="3_5ixxa"]
 [ext_resource type="Script" uid="uid://bbwyadf3w721b" path="res://Source/Player/Movement/walking.gd" id="4_nn08x"]

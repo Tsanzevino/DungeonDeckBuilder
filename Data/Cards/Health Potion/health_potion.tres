@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HealCard" load_steps=3 format=3 uid="uid://d14tsjpim2vny"]
+
+[ext_resource type="Script" uid="uid://bq35wx80i662m" path="res://Source/Cards/heal_card.gd" id="1_d3u1o"]
+[ext_resource type="Texture2D" uid="uid://cdsarnaoehwwt" path="res://icon.svg" id="1_k0ftt"]
+
+[resource]
+script = ExtResource("1_d3u1o")
+healAmount = 2.0
+name = "Health Potion"
+description = "Heals you 2 health"
+manaCost = 10.0
+displayImage = ExtResource("1_k0ftt")
+tags = Array[int]([3])
+metadata/_custom_type_script = "uid://bq35wx80i662m"

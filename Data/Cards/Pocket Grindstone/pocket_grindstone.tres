@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="BoostCard" load_steps=8 format=3 uid="uid://bx0h38v0k10kh"]
+
+[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Cards/Conditions/condition.gd" id="1_j036u"]
+[ext_resource type="Resource" uid="uid://ccsfrg1tf5bu" path="res://Data/Cards/Effects/double.tres" id="2_jcdku"]
+[ext_resource type="Script" uid="uid://812qac62qivh" path="res://Source/Cards/Conditions/tag_condition.gd" id="2_khnx8"]
+[ext_resource type="Script" uid="uid://otpc4djsy0j1" path="res://Source/Cards/weapon_boost_card.gd" id="2_mhe0k"]
+[ext_resource type="Texture2D" uid="uid://cydfrnwts5cbl" path="res://Data/Cards/Rusty Shortsword/broken_rusty_shortsword.png" id="3_oadik"]
+[ext_resource type="Script" uid="uid://2sotcxq8f8jy" path="res://Source/Cards/Effects/effect.gd" id="4_jcdku"]
+
+[sub_resource type="Resource" id="Resource_khnx8"]
+script = ExtResource("2_khnx8")
+tag = 4
+metadata/_custom_type_script = "uid://812qac62qivh"
+
+[resource]
+script = ExtResource("2_mhe0k")
+boostEffects = Array[ExtResource("4_jcdku")]([ExtResource("2_jcdku")])
+conditions = Array[ExtResource("1_j036u")]([SubResource("Resource_khnx8")])
+name = "Pocket Grindstone"
+description = "Doubles the damage of the next Melee weapon to be used."
+manaCost = 20.0
+displayImage = ExtResource("3_oadik")
+tags = Array[int]([5])
+metadata/_custom_type_script = "uid://otpc4djsy0j1"

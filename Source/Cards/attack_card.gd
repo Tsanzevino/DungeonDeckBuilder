@@ -1,14 +1,13 @@
 class_name AttackCard extends Card
 
-static var attackInProgress : bool = false
-
 @export var attack : Attack
 @export var breakChance : float = 0.0
 
 func play(player : Player) -> bool:
-	if attackInProgress: return false
+	if player.attacking: return false
 	if not consume_mana(player): return false
 	if is_broken(): return true
+	apply_effects()
 	start_attack(player)
 	return true
 
@@ -17,16 +16,16 @@ func is_broken() -> bool:
 	elif randf() < breakChance:
 		DebugLogger.info("Your " + name + " just broke :O")
 		name = "Broken " + name
+		attack.damage = 0
 		tags.push_back(Card.Tag.BROKEN)
-		attack.damage = 0.0
 		manaCost = 0.0
 	return false
 
 func start_attack(player : Player):
-	attackInProgress = true
+	player.attacking = true
 	var hitbox = Hitbox.new(attack)
 	player.add_child(hitbox)
-	hitbox.attack_finished.connect(on_attack_finished)
+	hitbox.attack_finished.connect(on_attack_finished.bind((player)))
 
-func on_attack_finished():
-	attackInProgress = false
+func on_attack_finished(player : Player):
+	player.attacking = false

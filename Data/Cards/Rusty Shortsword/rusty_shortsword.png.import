@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dik5y3w0e6n0g"
-path="res://.godot/imported/fireball.png-048dad1a15aace7bde6e3e3be6eea5e6.ctex"
+uid="uid://dwd4o74quq4la"
+path="res://.godot/imported/rusty_shortsword.png-de359c556378cbed9c16902c30baaad2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Data/Cards/fireball.png"
-dest_files=["res://.godot/imported/fireball.png-048dad1a15aace7bde6e3e3be6eea5e6.ctex"]
+source_file="res://Data/Cards/Rusty Shortsword/rusty_shortsword.png"
+dest_files=["res://.godot/imported/rusty_shortsword.png-de359c556378cbed9c16902c30baaad2.ctex"]
 
 [params]
 

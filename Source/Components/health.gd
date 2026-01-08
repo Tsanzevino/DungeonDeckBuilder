@@ -11,8 +11,10 @@ func damage(amount : float):
 	if amount < 0: DebugLogger.error("Damage amount should not be negative for function damage!")
 	health = clampf(health - amount, 0, maxHealth)
 	if health == 0: no_heath.emit()
+	DebugLogger.info("%s is at %3.1f health" % [get_parent().name, health])
 
 func heal(amount : float):
 	if amount < 0: DebugLogger.error("Heal amount should not be negative for function heal!")
 	health = clampf(health + amount, 0, maxHealth)
 	if health == maxHealth: max_health.emit()
+	DebugLogger.info("%s is at %3.1f health" % [get_parent().name, health])

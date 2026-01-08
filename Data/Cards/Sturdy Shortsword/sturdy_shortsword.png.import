@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mcwto1m01gej"
-path="res://.godot/imported/sturdy_shortsword.png-ad6bd3a61fc5118406c34e0b8b2defb8.ctex"
+path="res://.godot/imported/sturdy_shortsword.png-853e2eefd52b964a78c3ff14667c14f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Data/Cards/sturdy_shortsword.png"
-dest_files=["res://.godot/imported/sturdy_shortsword.png-ad6bd3a61fc5118406c34e0b8b2defb8.ctex"]
+source_file="res://Data/Cards/Sturdy Shortsword/sturdy_shortsword.png"
+dest_files=["res://.godot/imported/sturdy_shortsword.png-853e2eefd52b964a78c3ff14667c14f9.ctex"]
 
 [params]
 

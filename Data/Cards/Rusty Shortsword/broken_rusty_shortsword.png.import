@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cydfrnwts5cbl"
-path="res://.godot/imported/broken_rusty_shortsword.png-c3205b482040007e499514813126d0a9.ctex"
+path="res://.godot/imported/broken_rusty_shortsword.png-628e49a58b1df2f1f03b0451894acb14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Data/Cards/broken_rusty_shortsword.png"
-dest_files=["res://.godot/imported/broken_rusty_shortsword.png-c3205b482040007e499514813126d0a9.ctex"]
+source_file="res://Data/Cards/Rusty Shortsword/broken_rusty_shortsword.png"
+dest_files=["res://.godot/imported/broken_rusty_shortsword.png-628e49a58b1df2f1f03b0451894acb14.ctex"]
 
 [params]
 

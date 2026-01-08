@@ -23,7 +23,7 @@ func setup(p : Player) -> void:
 	owner = p
 	var newCards : Array[Card] = []
 	for i in range(cards.size() - 1, -1,-1):
-		newCards.append(cards[i].duplicate_deep())
+		newCards.append(cards[i].duplicate_deep(DeepDuplicateMode.DEEP_DUPLICATE_ALL))
 	cards = newCards
 	stock.append_array(cards)
 	for n in handSize:

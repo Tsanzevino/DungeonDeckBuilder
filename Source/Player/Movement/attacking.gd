@@ -2,8 +2,15 @@ extends MovementState
 
 func physics_update(delta: float) -> void:
 	# Perform State Movement
+	look_toward_movement()
 	player.velocity = lerp(player.velocity, direction * ATTACK_SPEED, delta * GROUND_FRICTION)
 	player.move_and_slide()
+	if player.attacking: return
+	if direction.length() > DEADZONE_SIZE:
+		if player.can_sprint():
+			finished.emit(SPRINTING)
+		else:
+			finished.emit(WALKING)
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	pass

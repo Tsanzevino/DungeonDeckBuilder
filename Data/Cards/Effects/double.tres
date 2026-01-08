@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="WeaponBoost" load_steps=2 format=3 uid="uid://ccsfrg1tf5bu"]
+
+[ext_resource type="Script" uid="uid://c3ghupf4j2btl" path="res://Source/Cards/Effects/weapon_boost.gd" id="1_2x2i5"]
+
+[resource]
+script = ExtResource("1_2x2i5")
+boostAmount = 2.0
+metadata/_custom_type_script = "uid://c3ghupf4j2btl"

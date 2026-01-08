@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SprintCard" load_steps=3 format=3 uid="uid://dyfpi77lyn17k"]
 
-[ext_resource type="Script" uid="uid://di07bf7akcu2t" path="res://Source/Cards/movement_card.gd" id="1_cbyog"]
-[ext_resource type="Texture2D" uid="uid://bukxuo83r6a7n" path="res://Data/Cards/sprint.png" id="1_gfht3"]
+[ext_resource type="Script" uid="uid://di07bf7akcu2t" path="res://Source/Cards/sprint_card.gd" id="1_cbyog"]
+[ext_resource type="Texture2D" uid="uid://bukxuo83r6a7n" path="res://Data/Cards/Sprint/sprint.png" id="1_gfht3"]
 
 [resource]
 script = ExtResource("1_cbyog")

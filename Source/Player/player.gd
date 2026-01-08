@@ -5,6 +5,7 @@ class_name Player extends CharacterBody2D
 @onready var mana : Mana = %Mana
 
 var sprintDuration : float = 0.0
+var attacking : bool = false
 
 func _ready() -> void:
 	deck.setup(self)

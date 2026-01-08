@@ -1,5 +1,8 @@
 class_name Enemy extends CharacterBody2D
 
+@export var attack : Attack
+@export var attackCooldown : float
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%Hurtbox.hurt.connect(%Health.damage)
