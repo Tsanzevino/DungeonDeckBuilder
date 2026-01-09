@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AttackingCondition" load_steps=2 format=3 uid="uid://gunsib7xehn0"]
+
+[ext_resource type="Script" uid="uid://dri0io5efeobi" path="res://Source/Cards/Conditions/attacking_condition.gd" id="1_8ofnh"]
+
+[resource]
+script = ExtResource("1_8ofnh")
+metadata/_custom_type_script = "uid://dri0io5efeobi"

@@ -9,13 +9,13 @@
 
 [sub_resource type="Resource" id="Resource_khnx8"]
 script = ExtResource("2_khnx8")
-tag = 4
+tags = Array[int]([3])
 metadata/_custom_type_script = "uid://812qac62qivh"
 
 [resource]
 script = ExtResource("2_mhe0k")
 boostEffects = Array[ExtResource("4_jcdku")]([ExtResource("2_jcdku")])
-conditions = Array[ExtResource("1_j036u")]([SubResource("Resource_khnx8")])
+tagCondition = SubResource("Resource_khnx8")
 name = "Pocket Grindstone"
 description = "Doubles the damage of the next Melee weapon to be used."
 manaCost = 20.0

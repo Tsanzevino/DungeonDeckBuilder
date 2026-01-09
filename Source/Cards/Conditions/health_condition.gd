@@ -1,12 +1,21 @@
+## A condition to test the value of the players health.
 class_name HealthCondition extends Condition
 
-enum Type{TOTAL_LEFT,TOTAL_LOST,PERCENTAGE_LEFT,PERCENTAGE_LOST}
+## Describes what type of test is being performed on the health value.
+enum Type{
+	TOTAL_LEFT ## at least [param value] health left
+	,TOTAL_LOST ## at least [param value] health lost
+	,PERCENTAGE_LEFT ## at least [param value]% health left
+	,PERCENTAGE_LOST ## at least [param value]% health lost
+	}
 
+## This is the specific test being performed.
 @export var type : Type = Type.PERCENTAGE_LEFT
 
-@export var value : float = 50.0
+## This value changes meaning depending on the type, either percent or a flat value.
+@export var value : float = 0.5
 
-func is_satisfied(player : Player) -> bool:
+func _test(player : Player) -> bool:
 	var currentHealth : float = player.health.health
 	match type:
 		Type.TOTAL_LEFT:

@@ -6,7 +6,7 @@ signal attack_finished
 @export var attack : Attack
 
 func _init(newAttack : Attack = attack) -> void:
-	attack = newAttack
+	attack = newAttack.duplicate(true)
 	collision_layer = 16
 	collision_mask = 32
 	monitoring = false

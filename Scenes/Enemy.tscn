@@ -85,4 +85,3 @@ metadata/_custom_type_script = "uid://do222lj53766q"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
-debug_enabled = true

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HealthCondition" load_steps=2 format=3 uid="uid://dwqq81ayoq7tr"]
+
+[ext_resource type="Script" uid="uid://ljhhhugp4nlf" path="res://Source/Cards/Conditions/health_condition.gd" id="1_mahj6"]
+
+[resource]
+script = ExtResource("1_mahj6")
+value = 1.0
+metadata/_custom_type_script = "uid://ljhhhugp4nlf"

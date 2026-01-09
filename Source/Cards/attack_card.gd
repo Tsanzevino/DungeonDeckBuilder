@@ -1,31 +1,24 @@
+## A card that deploys an attack when played.
 class_name AttackCard extends Card
 
+## The attack that gets deployed.
 @export var attack : Attack
-@export var breakChance : float = 0.0
 
-func play(player : Player) -> bool:
-	if player.attacking: return false
-	if not consume_mana(player): return false
-	if is_broken(): return true
-	apply_effects()
-	start_attack(player)
-	return true
+## Override of the superclass to force a check for the player attacking.
+func _all_conditions_satisfied(player : Player) -> bool:
+	return super(player) and not player.attacking
 
-func is_broken() -> bool:
-	if tags.has(Card.Tag.BROKEN): return true
-	elif randf() < breakChance:
-		DebugLogger.info("Your " + name + " just broke :O")
-		name = "Broken " + name
-		attack.damage = 0
-		tags.push_back(Card.Tag.BROKEN)
-		manaCost = 0.0
-	return false
+## Performs the card action, an attack.
+func _perform_action(player : Player) -> void:
+	_start_attack(player)
 
-func start_attack(player : Player):
+## Sets up the hitbox and puts the player in the attacking state.
+func _start_attack(player : Player):
 	player.attacking = true
 	var hitbox = Hitbox.new(attack)
 	player.add_child(hitbox)
-	hitbox.attack_finished.connect(on_attack_finished.bind((player)))
+	hitbox.attack_finished.connect(_on_attack_finished.bind((player)))
 
-func on_attack_finished(player : Player):
+## Takes the player out of the attacking state when the attack is finished
+func _on_attack_finished(player : Player):
 	player.attacking = false

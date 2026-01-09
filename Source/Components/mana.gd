@@ -11,7 +11,7 @@ class_name Mana extends Node
 ## discouraging full mana expenditure. If negative, then mana will never reach the top
 @export var manaAccRate : float = 0.5
 
-var mana : float = 0
+var mana : float = maxMana
 var timer : float
 
 func consume(amount : float) -> bool:

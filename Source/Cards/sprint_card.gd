@@ -1,8 +1,9 @@
+## A card that adds sprint duration to the player.
 class_name SprintCard extends Card
 
+## The amount of sprint duration added.
 @export var duration : float
 
-func play(player : Player) -> bool:
-	if not consume_mana(player): return false
+## Adds sprint duration.
+func _perform_action(player : Player) -> void:
 	player.add_sprint_duration(duration)
-	return true
