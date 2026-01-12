@@ -1,4 +1,4 @@
-class_name Enemy extends CharacterBody2D
+class_name Enemy extends Entity
 
 @export var attack : Attack
 @export var attackCooldown : float
@@ -7,6 +7,7 @@ class_name Enemy extends CharacterBody2D
 func _ready() -> void:
 	%Hurtbox.hurt.connect(%Health.damage)
 	%Health.no_heath.connect(die)
+	health = %Health
 	setup()
 
 func die() -> void:

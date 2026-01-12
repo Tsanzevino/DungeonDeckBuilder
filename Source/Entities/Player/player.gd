@@ -1,13 +1,13 @@
-class_name Player extends CharacterBody2D
+class_name Player extends Entity
 
 @export var deck : Deck
-@onready var health : Health = %Health
 @onready var mana : Mana = %Mana
 
 var sprintDuration : float = 0.0
 var attacking : bool = false
 
 func _ready() -> void:
+	health = %Health
 	deck.setup(self)
 	%UserInterfaceManager.setup(mana, health, deck)
 	%Hurtbox.hurt.connect(health.damage)

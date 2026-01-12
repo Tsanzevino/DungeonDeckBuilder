@@ -12,7 +12,7 @@ enum Target{
 @export var duration : float = 0.1 ## How long the attack will last.
 @export var windup : float = 0.1 ## The time it takes to start the attack after initiating it.
 @export var offset : Vector2 = Vector2.ZERO ## The offset from the user when attacking.
+@export var movement : Vector2 = Vector2.ZERO ## The movement vector traveled each second.
 @export var aoe : Shape2D ## The hitboxes shape, A.K.A. the area of effect.
-@export var propertyTweenTemplates : Array[PropertyTweenTemplate] ## Property Tween Templates to move the hitbox during the attack.
 @export var damageTarget : Target ## The target of the attack
 @export var topLevel : bool = false ## Whether this attack should follow the user. True means it should not.
