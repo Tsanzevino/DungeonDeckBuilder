@@ -15,7 +15,6 @@ func setup(d : Deck):
 	update_stock()
 	update_discard()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Check swap
 	if Input.is_action_just_pressed("swap_card"):
@@ -49,7 +48,8 @@ func play_card():
 	update_stock()
 
 func update_hand():
-	for i in deck.handSize: %Cards.get_child(i).update_card(deck.hand[i])
+	for i in deck.handSize: 
+		%Cards.get_child(i).update_card(deck.hand[i])
 
 func update_discard():
 	if deck.discard.size() == 0: 
