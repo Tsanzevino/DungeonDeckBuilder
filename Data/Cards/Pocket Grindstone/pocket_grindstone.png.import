@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cydfrnwts5cbl"
-path="res://.godot/imported/broken_rusty_shortsword.png-628e49a58b1df2f1f03b0451894acb14.ctex"
+path="res://.godot/imported/pocket_grindstone.png-eed7461f7c7075ec0eda1f3878f95752.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Data/Cards/Rusty Shortsword/broken_rusty_shortsword.png"
-dest_files=["res://.godot/imported/broken_rusty_shortsword.png-628e49a58b1df2f1f03b0451894acb14.ctex"]
+source_file="res://Data/Cards/Pocket Grindstone/pocket_grindstone.png"
+dest_files=["res://.godot/imported/pocket_grindstone.png-eed7461f7c7075ec0eda1f3878f95752.ctex"]
 
 [params]
 

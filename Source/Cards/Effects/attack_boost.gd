@@ -7,7 +7,7 @@ func apply(card : Card):
 	card.card_played.connect(_on_card_played)
 	card.effects.append(self)
 
-func _on_card_played(_player : Player, card : Card):
+func _on_card_played(_entity : Entity, card : Card):
 	card.card_played.disconnect(_on_card_played)
 	card.attack.damage = get_unboosted_value(card.attack.damage)
 	DebugLogger.debug("made damage on %s %d" % [card.name, card.attack.damage])

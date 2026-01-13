@@ -7,9 +7,9 @@
 
 ## This is the public function that is called when testing a condition. 
 ## It combines the implemented test function and invert to provide a bool result.
-func is_satisfied(player : Player) -> bool:
-	return _test(player) != invert
+func is_satisfied(entity : Entity) -> bool:
+	return _test(entity) != invert
 
 ## This is the private implementation of the class.
 ## Allows for very open-ended testing for the state of the player and their hand.
-@abstract func _test(player : Player) -> bool
+@abstract func _test(entity : Entity) -> bool

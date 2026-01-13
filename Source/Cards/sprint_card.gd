@@ -5,5 +5,5 @@ class_name SprintCard extends Card
 @export var duration : float
 
 ## Adds sprint duration.
-func _perform_action(player : Player) -> void:
-	player.add_sprint_duration(duration)
+func _perform_action(entity : Entity) -> void:
+	entity.add_sprint_duration(duration)

@@ -12,8 +12,8 @@ class_name TagCondition extends Condition
 @export var target : Deck.Position
 
 ## Tests each card and returns true if at least one card has all tags.
-func _test(player : Player) -> bool:
-	for card in player.deck.get_cards(target):
+func _test(entity : Entity) -> bool:
+	for card in entity.deck.get_cards(target):
 		if test_card(card): return true
 	return false
 

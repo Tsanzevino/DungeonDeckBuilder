@@ -8,6 +8,7 @@ class_name Health extends Node
 @onready var health : float = maxHealth :
 	set(value):
 		health = clampf(value, 0, maxHealth)
+		health_changed.emit()
 		if health == 0: no_heath.emit()
 		if health == maxHealth: max_health.emit()
 		DebugLogger.info("%s is at %3.1f health" % [get_parent().name, health])
@@ -16,6 +17,8 @@ class_name Health extends Node
 signal max_health
 ## A signal emitted when it reaches no health, or when health is modified and clamped to zero.
 signal no_heath
+## A signal emitted when the health value is changed.
+signal health_changed
 
 ## Takes a certain amount of damage.
 func damage(amount : float):

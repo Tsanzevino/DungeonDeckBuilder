@@ -25,3 +25,6 @@ func start_chase():
 func flee_direction() -> Vector2:
 	if enemy.nearest_player() == null: return Vector2.ZERO
 	return (enemy.global_position - enemy.nearest_player().global_position).normalized()
+
+func look_toward(direction : Vector2) -> void:
+	enemy.pivot.rotation = Vector2.UP.angle_to(direction)

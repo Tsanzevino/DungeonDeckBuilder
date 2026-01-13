@@ -1,20 +1,7 @@
 class_name Enemy extends Entity
 
-@export var attack : Attack
-@export var attackCooldown : float
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	%Hurtbox.hurt.connect(%Health.damage)
-	%Health.no_heath.connect(die)
-	health = %Health
-	setup()
-
-func die() -> void:
+func on_no_health() -> void:
 	queue_free()
-
-func setup() -> void:
-	pass
 
 func player_spotted() -> bool:
 	return %ChaseRange.nearestPlayer != null

@@ -3,7 +3,7 @@ class_name Mana extends Node
 ## The maximum mana that can be stored.
 @export var maxMana : float = 100.0
 ## The cooldown time before mana begins to recharge after use.
-@export var manaChargeCooldown : float = 0.5
+@export var manaChargeCooldown : float = 1.0
 ## The constant rate that mana recharges at.
 @export var manaChargeSpeed : float = 10
 ## The proportion of total mana that gets re-attributed every second.
@@ -12,22 +12,26 @@ class_name Mana extends Node
 @export var manaAccRate : float = 0.5
 
 ## The current mana value.
-var mana : float = maxMana
+@onready var mana : float = maxMana
 ## A timer for tracking the cooldown.
-var timer : float
+var timer : float = 0.0
 
 ## Consumes an amount of mana. If the amount cannot be consumed, the function passes false
 ## and mana remains unchanged. If there is enough mana, it is consumed and returns true.
 func consume(amount : float) -> bool:
-	if amount < 0: DebugLogger.error("Mana amount should not be negative for consume mana!")
-	if amount == 0.0: return true
-	if mana - amount < 0: 
-		DebugLogger.info("Mana could not be consumed: Not enough mana.")
-		not_enough_mana.emit()
+	if not can_consume(amount): 
+		if amount < 0: DebugLogger.error("Mana amount should not be negative for consume mana!")
+		elif mana < amount: 
+			DebugLogger.info("Mana could not be consumed: Not enough mana.")
+			not_enough_mana.emit()
 		return false
 	mana -= amount
 	timer = 0
 	return true
+
+## Tests if the amount of mana is available for use.
+func can_consume(amount : float) -> bool:
+	return amount >= 0 and mana >= amount
 
 ## Takes care of the timer and mana regeneration.
 func _process(delta: float) -> void:
@@ -39,8 +43,8 @@ func _process(delta: float) -> void:
 	# Clamps the mana to max mana and sends out a signal.
 	if mana >= maxMana:
 		mana = maxMana
-		max_mana.emit()
 		DebugLogger.info("Mana Full")
+		max_mana.emit()
 
 ## Emitted when the mana is full.
 signal max_mana

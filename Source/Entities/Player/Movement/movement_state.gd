@@ -2,7 +2,7 @@
 
 const WALK_SPEED : float = 100.0
 const ATTACK_SPEED : float = 5.0
-const SPRINT_SPEED : float = 400.0
+const SPRINT_SPEED : float = 200.0
 const GROUND_FRICTION : float = 15
 const DEADZONE_SIZE : float = 0.1
 
@@ -22,4 +22,4 @@ func update(_delta : float) -> void:
 
 func look_toward_movement():
 	if direction.length() >= DEADZONE_SIZE:
-		player.rotation = -direction.angle_to(Vector2.UP)
+		player.pivot.rotation = Vector2.UP.angle_to(direction)

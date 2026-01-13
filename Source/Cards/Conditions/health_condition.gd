@@ -15,18 +15,18 @@ enum Type{
 ## This value changes meaning depending on the type, either percent or a flat value.
 @export var value : float = 0.5
 
-func _test(player : Player) -> bool:
-	var currentHealth : float = player.health.health
+func _test(entity : Entity) -> bool:
+	var currentHealth : float = entity.health.health
 	match type:
 		Type.TOTAL_LEFT:
 			return currentHealth >= value
 		Type.TOTAL_LOST:
 			return currentHealth <= value
 		Type.PERCENTAGE_LEFT:
-			var percentHealth = currentHealth / player.health.maxHealth
+			var percentHealth = currentHealth / entity.health.maxHealth
 			return percentHealth >= value
 		Type.PERCENTAGE_LOST:
-			var percentHealth = currentHealth / player.health.maxHealth
+			var percentHealth = currentHealth / entity.health.maxHealth
 			return percentHealth <= value
 		_:
 			return false

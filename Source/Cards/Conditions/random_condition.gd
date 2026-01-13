@@ -6,5 +6,5 @@ class_name RandomCondition extends Condition
 ## invert a chance of 1.0.
 @export_range(0.0,1.0,0.01) var chance : float = 0.5
 
-func _test(_player : Player) -> bool:
+func _test(_entity : Entity) -> bool:
 	return randf() <= chance

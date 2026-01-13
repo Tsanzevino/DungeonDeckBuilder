@@ -17,18 +17,18 @@ enum Type{
 @export var healCondition : HealthCondition = preload("res://Data/Cards/Conditions/HealthConditions/not_full_health.tres")
 
 ## Override of the superclass to force a check for the player's health.
-func _all_conditions_satisfied(player : Player) -> bool:
-	return super(player) and healCondition.is_satisfied(player)
+func _all_conditions_satisfied(entity : Entity) -> bool:
+	return super(entity) and healCondition.is_satisfied(entity)
 
 ## Applies the type of healing on the player.
-func _perform_action(player : Player) -> void:
+func _perform_action(entity : Entity) -> void:
 	match type:
 		Type.PERCENTAGE_INCREASE:
-			player.health.heal(healAmount * player.health.maxHealth)
+			entity.health.heal(healAmount * entity.health.maxHealth)
 		Type.FLAT_INCREASE:
-			player.health.heal(healAmount)
+			entity.health.heal(healAmount)
 		Type.PERCENT_SET:
-			player.health.health = healAmount * player.health.maxHealth
+			entity.health.health = healAmount * entity.health.maxHealth
 		Type.FLAT_SET:
-			player.health.health = healAmount
+			entity.health.health = healAmount
 		

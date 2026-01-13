@@ -20,10 +20,10 @@ var hand : Array[Card] = []
 var discard : Array[Card] = []
 
 ## The owner of the deck.
-var owner : Player
+var owner : Entity
 
 ## Called by the owner to set up the deck.
-func setup(p : Player) -> void:
+func setup(p : Entity) -> void:
 	owner = p
 	var newCards : Array[Card] = []
 	for i in range(cards.size() - 1, -1,-1):
@@ -40,6 +40,11 @@ func play_card(index : int) -> void:
 	if not playedCard.play(owner): return
 	discard.push_back(playedCard)
 	hand[index] = draw()
+
+## Transfers the cards from the hand into the discard and redraws a new hand.
+func discard_hand(playedCard : Card) -> void:
+	for i in range(hand.size()): if not hand[i] == playedCard: discard.push_back(hand[i])
+	for i in range(hand.size()): if not hand[i] == playedCard: hand[i] = draw()
 
 ## Draws a new card from the stock.
 ## If there is not stock left, it will shuffle and then draw a card.

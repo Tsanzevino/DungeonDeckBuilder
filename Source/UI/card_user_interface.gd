@@ -8,6 +8,7 @@ func _init(card : Card):
 func _ready():
 	var tex := TextureRect.new()
 	tex.texture = displayCard.displayImage
+	tex.custom_minimum_size = Vector2(128,128)
 	add_child(tex)
 
 func update_card(card : Card):

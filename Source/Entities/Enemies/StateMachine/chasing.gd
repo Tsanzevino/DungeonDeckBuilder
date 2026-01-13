@@ -1,14 +1,13 @@
 # Enemy Chasing State
 extends EnemyState
 
-
 func update(_delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
 	var direction : Vector2 = chase_direction()
 	enemy.velocity = lerp(enemy.velocity, direction * CHASE_MOVE_SPEED, delta * GROUND_FRICTION)
-	enemy.look_at(enemy.global_position + direction)
+	look_toward(direction)
 	enemy.move_and_slide()
 	
 	if not enemy.player_spotted(): 

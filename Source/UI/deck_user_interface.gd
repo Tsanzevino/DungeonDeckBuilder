@@ -35,7 +35,7 @@ func select_card(index : int):
 
 func play_card():
 	deck.play_card(selectedCard)
-	%Cards.get_child(selectedCard).update_card(deck.hand[selectedCard])
+	for i in deck.handSize: %Cards.get_child(i).update_card(deck.hand[i])
 	update_discard()
 	update_stock()
 

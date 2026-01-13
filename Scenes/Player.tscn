@@ -14,10 +14,14 @@
 [ext_resource type="Script" uid="uid://bcceqc2f8hmnr" path="res://Source/Components/hurtbox.gd" id="10_miouo"]
 [ext_resource type="PackedScene" uid="uid://b0uns41g1vi3p" path="res://Scenes/UserInterfaceManager.tscn" id="11_ksbbd"]
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mana", "health", "hurtbox", "pivot") groups=["Player"]]
 collision_layer = 4
 script = ExtResource("1_rpqav")
 deck = ExtResource("2_glx4g")
+mana = NodePath("Mana")
+health = NodePath("Health")
+hurtbox = NodePath("Hurtbox")
+pivot = NodePath("Pivot")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -50,19 +54,15 @@ script = ExtResource("5_5ixxa")
 script = ExtResource("9_miouo")
 
 [node name="Mana" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("8_ksbbd")
-manaChargeCooldown = 1.0
 metadata/_custom_type_script = "uid://b04084yg56be0"
 
 [node name="Health" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("9_glx4g")
 maxHealth = 10.0
 metadata/_custom_type_script = "uid://dp4w212aij0sp"
 
 [node name="Hurtbox" type="Area2D" parent="."]
-unique_name_in_owner = true
 script = ExtResource("10_miouo")
 metadata/_custom_type_script = "uid://bcceqc2f8hmnr"
 

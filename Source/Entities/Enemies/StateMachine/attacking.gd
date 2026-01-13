@@ -6,25 +6,11 @@ func update(_delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	enemy.velocity = lerp(enemy.velocity, chase_direction() * ATTACK_MOVE_SPEED, delta * GROUND_FRICTION)
+	if enemy.attacking: return
+	var direction : Vector2 = chase_direction()
+	enemy.velocity = lerp(enemy.velocity, direction * ATTACK_MOVE_SPEED, delta * GROUND_FRICTION)
+	look_toward(direction)
 	enemy.move_and_slide()
-	#sadfs 
-
-func enter(_previous_state_path: String, _data := {}) -> void:
-	enemy.look_at(enemy.nearest_player().global_position)
-	enemy.rotate(PI/2)
-	start_attack()
-
-func start_attack():
-	var hitbox = Hitbox.new(enemy.attack)
-	enemy.add_child(hitbox)
-	hitbox.attack_finished.connect(_on_attack_finished)
-
-func _on_attack_finished():
-	var timer = get_tree().create_timer(enemy.attackCooldown)
-	timer.timeout.connect(change_state)
-
-func change_state():
 	if not enemy.player_spotted(): 
 		finished.emit(IDLE)
 		return
@@ -32,9 +18,17 @@ func change_state():
 		finished.emit(CHASING)
 		return
 	if not enemy.player_too_close():
-		start_attack()
+		attack()
 		return
 	finished.emit(FLEEING)
+
+func enter(_previous_state_path: String, _data := {}) -> void:
+	look_toward((enemy.nearest_player().global_position - enemy.global_position).normalized())
+	attack()
+
+func attack():
+	if enemy.mana.can_consume(enemy.deck.hand[0].manaCost):
+		enemy.deck.play_card(0)
 
 func exit() -> void:
 	pass

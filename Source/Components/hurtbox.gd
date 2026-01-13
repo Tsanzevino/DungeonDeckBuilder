@@ -19,7 +19,7 @@ func on_area_entered(area : Area2D) -> void:
 
 ## Determines how much damage to deal based on the attack target.
 func get_damage(hitbox : Hitbox, target : Attack.Target) -> float:
-	if target == Attack.Target.EXCLUDE_USER and get_parent() == hitbox.get_parent():
+	if target == Attack.Target.EXCLUDE_USER and get_parent() == hitbox.get_parent().get_parent():
 		return 0
 	if target == Attack.Target.EXCLUDE_USER_TYPE and owner.collision_layer == hitbox.owner.collision_layer:
 		return 0
