@@ -1,6 +1,7 @@
 extends Control
 
 var selectedCard : int = 0
+var swapCard : int = 0
 var deck : Deck
 
 func setup(d : Deck):
@@ -16,6 +17,13 @@ func setup(d : Deck):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	# Check swap
+	if Input.is_action_just_pressed("swap_card"):
+		swapCard = selectedCard
+	if Input.is_action_just_released("swap_card") and selectedCard != swapCard:
+		deck.swap_cards(swapCard, selectedCard)
+		update_hand()
+	# Check select
 	if Input.is_action_just_pressed("select_first_card"):
 		select_card(0)
 	elif Input.is_action_just_pressed("select_last_card"):
@@ -24,6 +32,7 @@ func _process(_delta: float) -> void:
 		select_card(clampi(selectedCard - 1,0,deck.handSize - 1))
 	elif Input.is_action_just_pressed("select_right_card"):
 		select_card(clampi(selectedCard + 1,0,deck.handSize - 1))
+	# Check play card
 	if Input.is_action_just_pressed("use_card"):
 		play_card()
 
@@ -35,9 +44,12 @@ func select_card(index : int):
 
 func play_card():
 	deck.play_card(selectedCard)
-	for i in deck.handSize: %Cards.get_child(i).update_card(deck.hand[i])
+	update_hand()
 	update_discard()
 	update_stock()
+
+func update_hand():
+	for i in deck.handSize: %Cards.get_child(i).update_card(deck.hand[i])
 
 func update_discard():
 	if deck.discard.size() == 0: 

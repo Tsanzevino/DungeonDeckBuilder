@@ -46,6 +46,12 @@ func discard_hand(playedCard : Card) -> void:
 	for i in range(hand.size()): if not hand[i] == playedCard: discard.push_back(hand[i])
 	for i in range(hand.size()): if not hand[i] == playedCard: hand[i] = draw()
 
+## Swaps two cards in different slots from hand
+func swap_cards(indexA : int, indexB : int) -> void:
+	var temp : Card = hand[indexA]
+	hand[indexA] = hand[indexB]
+	hand[indexB] = temp
+
 ## Draws a new card from the stock.
 ## If there is not stock left, it will shuffle and then draw a card.
 func draw() -> Card:
