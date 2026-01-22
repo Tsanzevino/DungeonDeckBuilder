@@ -23,17 +23,17 @@ health = NodePath("Health")
 hurtbox = NodePath("Hurtbox")
 pivot = NodePath("Pivot")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_yoq75")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
 
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
-scale = Vector2(0.125, 0.125)
+z_index = 1
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_nn08x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = ExtResource("2_yoq75")
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true

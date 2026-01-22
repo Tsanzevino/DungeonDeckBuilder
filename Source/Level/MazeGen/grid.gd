@@ -16,29 +16,27 @@ func get_cell(coordinates : Vector2i) -> Cell:
 
 func _to_string() -> String:
 	var result = ""
-	for x in dimensions.x:
-		for y in dimensions.y:
-			result += _get_char(Vector2i(x,y))
+	for y in dimensions.y:
+		for x in dimensions.x:
+			result += get_cell(Vector2i(x,y)).to_string()
 		result += "\n"
 	return result
 
-func _get_char(coordinates : Vector2i) -> String:
-	var cell = get_cell(coordinates)
-	match cell.edges:
-		Cell.Direction.NONE: return " "
-		Cell.Direction.EAST: return "\u257a"
-		Cell.Direction.SOUTH: return "\u257b"
-		Cell.Direction.SOUTH_EAST: return "\u250f"
-		Cell.Direction.WEST: return "\u2578"
-		Cell.Direction.WEST_EAST: return "\u2501"
-		Cell.Direction.SOUTH_WEST: return "\u2513"
-		Cell.Direction.NOT_NORTH: return "\u2533"
-		Cell.Direction.NORTH: return "\u2579"
-		Cell.Direction.NORTH_EAST: return "\u2517"
-		Cell.Direction.NORTH_SOUTH: return "\u2503"
-		Cell.Direction.NOT_WEST: return "\u2523"
-		Cell.Direction.NORTH_WEST: return "\u251b"
-		Cell.Direction.NOT_SOUTH: return "\u253b"
-		Cell.Direction.NOT_EAST: return "\u252b"
-		Cell.Direction.ALL: return "\u254b"
-		_: return ""
+func has_cell(coordinates : Vector2i) -> bool:
+	if coordinates.x < 0 or dimensions.x <= coordinates.x: return false
+	if coordinates.y < 0 or dimensions.y <= coordinates.y: return false
+	return true
+
+func print_solution(start : Vector2i = Vector2i.ZERO, finish : Vector2i = Vector2i(-1,-1)) -> void:
+	if finish == Vector2i(-1,-1):
+		finish = dimensions + finish
+	var solution : Array[Vector2i] = BFSSolver.solve(self,start,finish)
+	var result = ""
+	for y in dimensions.y:
+		for x in dimensions.x:
+			var coords = Vector2i(x,y)
+			if solution.has(coords):
+				result += get_cell(Vector2i(x,y)).to_string()
+			else: result += " "
+		result += "\n"
+	print(result)

@@ -17,12 +17,16 @@ gradient = SubResource("Gradient_bg34t")
 fill_from = Vector2(0, 1)
 
 [node name="HealthDisplay" type="TextureProgressBar"]
-custom_minimum_size = Vector2(16, 2)
+custom_minimum_size = Vector2(64, 8)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
