@@ -5,7 +5,7 @@ var opened : bool = false
 
 func _on_interact(entity : Entity) -> void:
 	if opened : return
-	#opened = true
+	opened = true
 	var loot : Array[Item] = lootTable.loot(entity)
 	for item in loot:
 		entity.collect_item(item)
