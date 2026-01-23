@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=6 format=3 uid="uid://t6nmn1j0u42e"]
+
+[ext_resource type="Script" uid="uid://cnww134qe3ifi" path="res://Source/Items/Cards/card.gd" id="1_e5261"]
+[ext_resource type="Resource" uid="uid://c4vap67oc63h4" path="res://Data/Items/Cards/Spear/spear.tres" id="2_b30yv"]
+[ext_resource type="Script" uid="uid://cm56wcp4kbgk5" path="res://Source/Items/Cards/Decks/deck.gd" id="2_o3pik"]
+[ext_resource type="Resource" uid="uid://ln8jhhs7ypth" path="res://Data/Items/Cards/Fireball/fireball.tres" id="3_b30yv"]
+[ext_resource type="Resource" uid="uid://d14tsjpim2vny" path="res://Data/Items/Cards/Health Potion/health_potion.tres" id="4_4e0x6"]
+
+[resource]
+script = ExtResource("2_o3pik")
+cards = Array[ExtResource("1_e5261")]([ExtResource("2_b30yv"), ExtResource("3_b30yv"), ExtResource("4_4e0x6")])
+handSize = 1
+metadata/_custom_type_script = "uid://cm56wcp4kbgk5"

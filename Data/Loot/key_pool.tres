@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="LootPool" load_steps=8 format=3 uid="uid://iouh1cvprjdk"]
 
-[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Cards/Conditions/condition.gd" id="1_8veoq"]
+[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Conditions/condition.gd" id="1_8veoq"]
 [ext_resource type="Script" uid="uid://ccrsa4hcge7ax" path="res://Source/Loot/loot_entry.gd" id="2_l8yqq"]
-[ext_resource type="Script" uid="uid://bghwquqba4og" path="res://Source/Cards/Conditions/key_condition.gd" id="2_q1pyv"]
+[ext_resource type="Script" uid="uid://bghwquqba4og" path="res://Source/Conditions/key_condition.gd" id="2_q1pyv"]
 [ext_resource type="Script" uid="uid://8ljbikvxu8os" path="res://Source/Loot/loot_pool.gd" id="3_q1pyv"]
 [ext_resource type="Resource" uid="uid://bjmhs1uvhhtlv" path="res://Data/Items/key.tres" id="4_q1pyv"]
 

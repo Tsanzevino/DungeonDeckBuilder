@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cdsarnaoehwwt" path="res://icon.svg" id="1_m1htj"]
 [ext_resource type="Script" uid="uid://bqwnq55bti0xx" path="res://Source/Entities/Enemies/enemy.gd" id="1_wovta"]
 [ext_resource type="Shape2D" uid="uid://dlkmwb7wrq8ru" path="res://Data/Enemies/enemy_collision_shape.tres" id="2_0o0ue"]
-[ext_resource type="Resource" uid="uid://t6nmn1j0u42e" path="res://Data/Cards/Decks/enemy_deck.tres" id="2_esfq3"]
+[ext_resource type="Resource" uid="uid://t6nmn1j0u42e" path="res://Data/Items/Cards/Decks/enemy_deck.tres" id="2_esfq3"]
 [ext_resource type="Script" uid="uid://bkp8l73petd6g" path="res://Source/Entities/Enemies/StateMachine/enemy_state_machine.gd" id="3_6bs3c"]
 [ext_resource type="Script" uid="uid://dlt1yokcom10t" path="res://Source/Entities/Enemies/StateMachine/idle.gd" id="4_uoxpr"]
 [ext_resource type="Script" uid="uid://bvqqkiayt74ow" path="res://Source/Entities/Enemies/StateMachine/chasing.gd" id="5_idouy"]

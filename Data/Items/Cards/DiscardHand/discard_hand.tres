@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DiscardHandCard" load_steps=4 format=3 uid="uid://cnu5tfctmkt8"]
+
+[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Conditions/condition.gd" id="1_wcj83"]
+[ext_resource type="Script" uid="uid://0x7rl10ohd45" path="res://Source/Items/Cards/discard_hand_card.gd" id="2_ml0ds"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wcj83"]
+size = Vector2(64, 64)
+
+[resource]
+script = ExtResource("2_ml0ds")
+manaCost = 10.0
+name = "Discard Hand"
+description = "Discard your hand and draw a new one"
+displayImage = SubResource("PlaceholderTexture2D_wcj83")
+metadata/_custom_type_script = "uid://0x7rl10ohd45"

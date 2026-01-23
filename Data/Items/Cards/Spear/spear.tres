@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttackCard" load_steps=5 format=3 uid="uid://c4vap67oc63h4"]
+
+[ext_resource type="Resource" uid="uid://ct6mg4mc06ya8" path="res://Data/Attacks/spear.tres" id="1_7vd8g"]
+[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Conditions/condition.gd" id="1_tqoyh"]
+[ext_resource type="Script" uid="uid://c2sjxl8huc5" path="res://Source/Items/Cards/attack_card.gd" id="2_3oygq"]
+[ext_resource type="Texture2D" uid="uid://mcwto1m01gej" path="res://Data/Items/Cards/Sturdy Shortsword/sturdy_shortsword.png" id="3_5labw"]
+
+[resource]
+script = ExtResource("2_3oygq")
+attack = ExtResource("1_7vd8g")
+name = "Spear"
+description = "Weapon with longer reach"
+manaCost = 15.0
+displayImage = ExtResource("3_5labw")
+tags = Array[int]([3])
+metadata/_custom_type_script = "uid://c2sjxl8huc5"

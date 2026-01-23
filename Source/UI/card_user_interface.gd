@@ -16,7 +16,7 @@ func update_card(card : Card):
 	get_child(0).texture = displayCard.displayImage
 
 func select_card():
-	add_theme_stylebox_override("panel",preload("res://Data/selected_card.tres"))
+	add_theme_stylebox_override("panel",preload("res://Data/Items/Cards/selected_card.tres"))
 
 func deselect_card():
 	remove_theme_stylebox_override("panel")

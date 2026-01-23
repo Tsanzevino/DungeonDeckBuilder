@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttackCard" load_steps=5 format=3 uid="uid://ln8jhhs7ypth"]
+
+[ext_resource type="Script" uid="uid://c2sjxl8huc5" path="res://Source/Items/Cards/attack_card.gd" id="1_7uhkj"]
+[ext_resource type="Resource" uid="uid://c6v3eob68okdc" path="res://Data/Attacks/fireball.tres" id="1_fu1ks"]
+[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Conditions/condition.gd" id="2_dlrxd"]
+[ext_resource type="Texture2D" uid="uid://dik5y3w0e6n0g" path="res://Data/Items/Cards/Fireball/fireball.png" id="2_uypnn"]
+
+[resource]
+script = ExtResource("1_7uhkj")
+attack = ExtResource("1_fu1ks")
+manaCost = 25.0
+name = "Fireball"
+description = "Easily the coolest card in the game."
+displayImage = ExtResource("2_uypnn")
+tags = Array[int]([0, 2])
+metadata/_custom_type_script = "uid://c2sjxl8huc5"
