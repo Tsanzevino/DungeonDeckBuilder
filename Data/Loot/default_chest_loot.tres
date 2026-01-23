@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=5 format=3 uid="uid://bbyf6eoj1qscm"]
+
+[ext_resource type="Script" uid="uid://8ljbikvxu8os" path="res://Source/Loot/loot_pool.gd" id="1_hk0fn"]
+[ext_resource type="Resource" uid="uid://iouh1cvprjdk" path="res://Data/Loot/key_pool.tres" id="2_3bvi5"]
+[ext_resource type="Script" uid="uid://dki82h2msl1ry" path="res://Source/Loot/loot_table.gd" id="2_i5py4"]
+[ext_resource type="Resource" uid="uid://dx28b7en7htso" path="res://Data/Loot/default_card_pool.tres" id="3_3bvi5"]
+
+[resource]
+script = ExtResource("2_i5py4")
+pools = Array[ExtResource("1_hk0fn")]([ExtResource("2_3bvi5"), ExtResource("3_3bvi5")])
+metadata/_custom_type_script = "uid://dki82h2msl1ry"

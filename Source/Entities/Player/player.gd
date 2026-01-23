@@ -1,7 +1,6 @@
 class_name Player extends Entity
 
 var sprintDuration : float = 0.0
-var keys : int
 
 func _ready() -> void:
 	super()

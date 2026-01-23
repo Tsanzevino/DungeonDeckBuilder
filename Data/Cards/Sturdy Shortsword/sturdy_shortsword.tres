@@ -8,9 +8,9 @@
 [resource]
 script = ExtResource("3_tj8xc")
 attack = ExtResource("1_t53oi")
-name = "Sturdy Short Sword"
-description = "This one probably won't break on you"
 manaCost = 15.0
+name = "Sturdy Shortsword"
+description = "Likely not to break."
 displayImage = ExtResource("2_nk3xf")
 tags = Array[int]([3])
 metadata/_custom_type_script = "uid://c2sjxl8huc5"

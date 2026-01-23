@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LootPool" load_steps=8 format=3 uid="uid://iouh1cvprjdk"]
+
+[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Cards/Conditions/condition.gd" id="1_8veoq"]
+[ext_resource type="Script" uid="uid://ccrsa4hcge7ax" path="res://Source/Loot/loot_entry.gd" id="2_l8yqq"]
+[ext_resource type="Script" uid="uid://bghwquqba4og" path="res://Source/Cards/Conditions/key_condition.gd" id="2_q1pyv"]
+[ext_resource type="Script" uid="uid://8ljbikvxu8os" path="res://Source/Loot/loot_pool.gd" id="3_q1pyv"]
+[ext_resource type="Resource" uid="uid://bjmhs1uvhhtlv" path="res://Data/Items/key.tres" id="4_q1pyv"]
+
+[sub_resource type="Resource" id="Resource_0ftxt"]
+script = ExtResource("2_q1pyv")
+invert = true
+metadata/_custom_type_script = "uid://bghwquqba4og"
+
+[sub_resource type="Resource" id="Resource_3ps51"]
+script = ExtResource("2_l8yqq")
+item = ExtResource("4_q1pyv")
+metadata/_custom_type_script = "uid://ccrsa4hcge7ax"
+
+[resource]
+script = ExtResource("3_q1pyv")
+conditions = Array[ExtResource("1_8veoq")]([SubResource("Resource_0ftxt")])
+entries = Array[ExtResource("2_l8yqq")]([SubResource("Resource_3ps51")])
+metadata/_custom_type_script = "uid://8ljbikvxu8os"

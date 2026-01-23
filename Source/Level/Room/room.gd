@@ -10,8 +10,7 @@ func _ready() -> void:
 	open_doors()
 
 func add_chest():
-	var key : Interactable = Interactable.new()
-	add_child(key)
+	add_child(preload("res://Scenes/Chest.tscn").instantiate())
 
 func update():
 	if get_tree().get_first_node_in_group("Player").keys > 0 and cell.has_closed_doors():

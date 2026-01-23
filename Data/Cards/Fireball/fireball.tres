@@ -8,9 +8,9 @@
 [resource]
 script = ExtResource("1_7uhkj")
 attack = ExtResource("1_fu1ks")
-name = "Fireball Spell"
-description = "The pinnacle of magic lore, somehow known by every wizard alive"
 manaCost = 25.0
+name = "Fireball"
+description = "Easily the coolest card in the game."
 displayImage = ExtResource("2_uypnn")
 tags = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://c2sjxl8huc5"

@@ -13,6 +13,7 @@ func _ready() -> void:
 		for y in grid.dimensions.y:
 			pass
 			var newRoom : Room = room.instantiate()
+			newRoom.z_index = -1
 			newRoom.position.x = x * roomDimensions.x
 			newRoom.position.y = y * roomDimensions.y
 			newRoom.cell = grid.get_cell(Vector2i(x,y))

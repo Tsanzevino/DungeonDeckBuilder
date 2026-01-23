@@ -22,6 +22,8 @@ var discard : Array[Card] = []
 ## The owner of the deck.
 var owner : Entity
 
+signal deck_changed
+
 ## Called by the owner to set up the deck.
 func setup(p : Entity) -> void:
 	owner = p
@@ -40,17 +42,20 @@ func play_card(index : int) -> void:
 	if not playedCard.play(owner): return
 	discard.push_back(playedCard)
 	hand[index] = draw()
+	deck_changed.emit()
 
 ## Transfers the cards from the hand into the discard and redraws a new hand.
 func discard_hand(playedCard : Card) -> void:
 	for i in range(hand.size()): if not hand[i] == playedCard: discard.push_back(hand[i])
 	for i in range(hand.size()): if not hand[i] == playedCard: hand[i] = draw()
+	deck_changed.emit()
 
 ## Swaps two cards in different slots from hand
 func swap_cards(indexA : int, indexB : int) -> void:
 	var temp : Card = hand[indexA]
 	hand[indexA] = hand[indexB]
 	hand[indexB] = temp
+	deck_changed.emit()
 
 ## Draws a new card from the stock.
 ## If there is not stock left, it will shuffle and then draw a card.
@@ -60,6 +65,13 @@ func draw() -> Card:
 	else:
 		shuffle()
 		return stock.pop_back()
+
+func add_card(card : Card) -> void:
+	# Add the card to the cards list.
+	cards.push_back(card)
+	# Insert into the bottom of the stock.
+	stock.push_front(card)
+	deck_changed.emit()
 
 ## Shuffles the discard and recycles it into the stock.
 func shuffle() -> void:

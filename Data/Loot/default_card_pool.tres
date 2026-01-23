@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="LootPool" load_steps=10 format=3 uid="uid://dx28b7en7htso"]
+
+[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Cards/Conditions/condition.gd" id="1_jswtq"]
+[ext_resource type="Script" uid="uid://ccrsa4hcge7ax" path="res://Source/Loot/loot_entry.gd" id="2_w5gjm"]
+[ext_resource type="Script" uid="uid://8ljbikvxu8os" path="res://Source/Loot/loot_pool.gd" id="3_3mfsp"]
+[ext_resource type="Resource" uid="uid://broe4d4c6mte" path="res://Data/Cards/Sturdy Shortsword/sturdy_shortsword.tres" id="3_4af8u"]
+[ext_resource type="Resource" uid="uid://d14tsjpim2vny" path="res://Data/Cards/Health Potion/health_potion.tres" id="4_dvpd4"]
+[ext_resource type="Resource" uid="uid://ln8jhhs7ypth" path="res://Data/Cards/Fireball/fireball.tres" id="5_4fh3f"]
+
+[sub_resource type="Resource" id="Resource_jwsh1"]
+script = ExtResource("2_w5gjm")
+weight = 10
+item = ExtResource("3_4af8u")
+metadata/_custom_type_script = "uid://ccrsa4hcge7ax"
+
+[sub_resource type="Resource" id="Resource_44wk2"]
+script = ExtResource("2_w5gjm")
+weight = 5
+item = ExtResource("4_dvpd4")
+metadata/_custom_type_script = "uid://ccrsa4hcge7ax"
+
+[sub_resource type="Resource" id="Resource_uwt04"]
+script = ExtResource("2_w5gjm")
+weight = 3
+item = ExtResource("5_4fh3f")
+metadata/_custom_type_script = "uid://ccrsa4hcge7ax"
+
+[resource]
+script = ExtResource("3_3mfsp")
+entries = Array[ExtResource("2_w5gjm")]([SubResource("Resource_jwsh1"), SubResource("Resource_44wk2"), SubResource("Resource_uwt04")])
+metadata/_custom_type_script = "uid://8ljbikvxu8os"
