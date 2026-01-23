@@ -8,8 +8,8 @@ size = Vector2(64, 64)
 
 [resource]
 script = ExtResource("2_ml0ds")
+manaCost = 10.0
 name = "Discard Hand"
 description = "Discard your hand and draw a new one"
-manaCost = 10.0
 displayImage = SubResource("PlaceholderTexture2D_wcj83")
 metadata/_custom_type_script = "uid://0x7rl10ohd45"

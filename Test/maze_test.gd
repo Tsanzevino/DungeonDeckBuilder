@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 
 func close_doors_on_solution():
 	var solution := BFSSolver.solve(grid)
-	for i in solution.size() - 2:
+	for i in solution.size() - 1:
 		var cell = grid.get_cell(solution[i])
 		if cell.count_edges() > 2:
 			var direction = solution[i + 1] - solution[i]

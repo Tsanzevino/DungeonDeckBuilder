@@ -4,7 +4,9 @@ class_name Chest extends Interactable
 var opened : bool = false
 
 func _on_interact(entity : Entity) -> void:
-	if opened : return
+	if opened : 
+		DebugLogger.debug("Chest already opened!")
+		return
 	opened = true
 	var loot : Array[Item] = lootTable.loot(entity)
 	for item in loot:
