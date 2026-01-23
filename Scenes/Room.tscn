@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://kd0gt3l4u5ad"]
+
+[ext_resource type="Shape2D" uid="uid://do6letfcyj3s1" path="res://Data/Level/long_wall.tres" id="1_5hpqs"]
+[ext_resource type="Script" uid="uid://d4hht0cashgl8" path="res://Source/Level/Room/room.gd" id="1_a2si3"]
+[ext_resource type="Shape2D" uid="uid://i0w57se0teqw" path="res://Data/Level/door.tres" id="2_nn86p"]
+[ext_resource type="Shape2D" uid="uid://crjukgbnk7h5a" path="res://Data/Level/short_wall.tres" id="3_uj218"]
+
+[sub_resource type="Gradient" id="Gradient_j464w"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5hpqs"]
+gradient = SubResource("Gradient_j464w")
+width = 1024
+height = 576
+fill_from = Vector2(0, 1)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_j464w"]
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_a2si3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = SubResource("GradientTexture2D_5hpqs")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_j464w")
+
+[node name="NorthWall" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -320)
+
+[node name="Door" type="CollisionShape2D" parent="NorthWall"]
+shape = ExtResource("2_nn86p")
+
+[node name="Left" type="CollisionShape2D" parent="NorthWall"]
+position = Vector2(-312, 0)
+shape = ExtResource("1_5hpqs")
+
+[node name="Right" type="CollisionShape2D" parent="NorthWall"]
+position = Vector2(312, 0)
+shape = ExtResource("1_5hpqs")
+
+[node name="SouthWall" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 320)
+
+[node name="Door" type="CollisionShape2D" parent="SouthWall"]
+shape = ExtResource("2_nn86p")
+
+[node name="Left" type="CollisionShape2D" parent="SouthWall"]
+position = Vector2(-312, 0)
+shape = ExtResource("1_5hpqs")
+
+[node name="Right" type="CollisionShape2D" parent="SouthWall"]
+position = Vector2(312, 0)
+shape = ExtResource("1_5hpqs")
+
+[node name="WestWall" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-544, 0)
+rotation = 1.5707964
+
+[node name="Door" type="CollisionShape2D" parent="WestWall"]
+shape = ExtResource("2_nn86p")
+
+[node name="Left" type="CollisionShape2D" parent="WestWall"]
+position = Vector2(-168, 3.496911e-07)
+shape = ExtResource("3_uj218")
+
+[node name="Right" type="CollisionShape2D" parent="WestWall"]
+position = Vector2(168, -3.496911e-07)
+shape = ExtResource("3_uj218")
+
+[node name="EastWall" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(544, 0)
+rotation = 1.5707964
+
+[node name="Door" type="CollisionShape2D" parent="EastWall"]
+shape = ExtResource("2_nn86p")
+
+[node name="Left" type="CollisionShape2D" parent="EastWall"]
+position = Vector2(-168, 3.496911e-07)
+shape = ExtResource("3_uj218")
+
+[node name="Right" type="CollisionShape2D" parent="EastWall"]
+position = Vector2(167, -3.059797e-07)
+shape = ExtResource("3_uj218")

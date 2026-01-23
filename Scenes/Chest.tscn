@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpgqppwtaak4g"]
+
+[ext_resource type="Script" uid="uid://co2yyiqucql4n" path="res://Source/Components/Interact/chest.gd" id="1_ghm5h"]
+[ext_resource type="Resource" uid="uid://bbyf6eoj1qscm" path="res://Data/Loot/default_chest_loot.tres" id="2_mr3w3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mr3w3"]
+size = Vector2(64, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqgxf"]
+size = Vector2(73, 55)
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_ghm5h")
+lootTable = ExtResource("2_mr3w3")
+metadata/_custom_type_script = "uid://co2yyiqucql4n"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_mr3w3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_fqgxf")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bk4llcww24y4g"]
+[gd_scene load_steps=16 format=3 uid="uid://bk4llcww24y4g"]
 
 [ext_resource type="Script" uid="uid://dosqkiw4rqbvb" path="res://Source/Entities/Player/player.gd" id="1_rpqav"]
 [ext_resource type="Script" uid="uid://d0b24owbxwual" path="res://Source/Entities/Player/Movement/movement_state_machine.gd" id="2_dewec"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" uid="uid://dy8c5hkdbfvc3" path="res://Source/Entities/Player/Movement/attacking.gd" id="9_miouo"]
 [ext_resource type="Script" uid="uid://bcceqc2f8hmnr" path="res://Source/Components/hurtbox.gd" id="10_miouo"]
 [ext_resource type="PackedScene" uid="uid://b0uns41g1vi3p" path="res://Scenes/UserInterfaceManager.tscn" id="11_ksbbd"]
+[ext_resource type="Script" uid="uid://c72gumgws2g4t" path="res://Source/Components/Interact/interactor.gd" id="14_o3h8g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1e7my"]
+radius = 64.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mana", "health", "hurtbox", "pivot") groups=["Player"]]
 collision_layer = 4
@@ -23,17 +27,16 @@ health = NodePath("Health")
 hurtbox = NodePath("Hurtbox")
 pivot = NodePath("Pivot")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_yoq75")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
 
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_nn08x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = ExtResource("2_yoq75")
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -71,3 +74,10 @@ shape = ExtResource("2_yoq75")
 
 [node name="UserInterfaceManager" parent="." instance=ExtResource("11_ksbbd")]
 unique_name_in_owner = true
+
+[node name="Interactor" type="Area2D" parent="."]
+script = ExtResource("14_o3h8g")
+metadata/_custom_type_script = "uid://c72gumgws2g4t"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor"]
+shape = SubResource("CircleShape2D_1e7my")

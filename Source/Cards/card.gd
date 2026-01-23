@@ -1,19 +1,13 @@
 ## Abstract Class for all the various cards in the game.
 ## Provides basic, essential functionality and structure to the cards as well as the universal fields of all cards.
-@abstract class_name Card extends Resource
+@abstract class_name Card extends Item
 
-## The name of the card.
-@export var name : String = ""
-## The card description.
-@export var description : String = ""
+
+
 ## The cost to play the card.
 @export var manaCost : float = 0.0
-## The image displayed on the card.
-@export var displayImage : Texture2D
 ## The conditions to play the card.
 @export var conditions : Array[Condition] = []
-## The tags this card has. Used to hold metadata about the card for effects and other cards.
-@export var tags : Array[Tag] = [] 
 
 ## The effects currently applied to the card. 
 var effects : Array[Effect]
@@ -49,7 +43,3 @@ func _consume_mana(entity : Entity) -> bool:
 ## Performs the cards actions. Only gets run if the conditions pass and there is enough mana.
 @abstract 
 func _perform_action(entity : Entity) -> void
-
-## An enum for every kind of tag possible. 
-##This avoids issues with strings such as misspellings, being similar but not identical, and being tedious.
-enum Tag{FIRE,WATER,SPELL,MELEE,BOOST}

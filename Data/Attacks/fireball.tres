@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://brujh7cqm7c1g" path="res://Source/Attacks/attack.gd" id="1_54t8k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hsx8c"]
+radius = 40.0
 
 [resource]
 script = ExtResource("1_54t8k")
 damage = 3.0
 windup = 0.5
-movement = Vector2(0, -50)
+movement = Vector2(0, -200)
 aoe = SubResource("CircleShape2D_hsx8c")
 topLevel = true
 metadata/_custom_type_script = "uid://brujh7cqm7c1g"

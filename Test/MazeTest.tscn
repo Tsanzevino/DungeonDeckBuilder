@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4w4wue7ofjrx"]
+
+[ext_resource type="Script" uid="uid://cstuis1v4b3bt" path="res://Test/maze_test.gd" id="1_a1noi"]
+[ext_resource type="PackedScene" uid="uid://bk4llcww24y4g" path="res://Scenes/Player.tscn" id="2_plbna"]
+
+[node name="MazeTest" type="Node2D"]
+script = ExtResource("1_a1noi")
+
+[node name="Player" parent="." instance=ExtResource("2_plbna")]

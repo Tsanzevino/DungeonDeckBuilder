@@ -1,8 +1,8 @@
 @abstract class_name EnemyState extends State
 
-const CHASE_MOVE_SPEED : float = 75.0
+const CHASE_MOVE_SPEED : float = 300.0
 const ATTACK_MOVE_SPEED : float = 0.0
-const FLEE_MOVE_SPEED : float = 100.0
+const FLEE_MOVE_SPEED : float = 400.0
 const GROUND_FRICTION : float = 15
 
 const IDLE : String = "Idle"

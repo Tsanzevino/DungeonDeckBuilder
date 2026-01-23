@@ -1,8 +1,8 @@
 @abstract class_name MovementState extends State
 
-const WALK_SPEED : float = 100.0
-const ATTACK_SPEED : float = 5.0
-const SPRINT_SPEED : float = 200.0
+const WALK_SPEED : float = 400.0
+const ATTACK_SPEED : float = 20.0
+const SPRINT_SPEED : float = 800.0
 const GROUND_FRICTION : float = 15
 const DEADZONE_SIZE : float = 0.1
 

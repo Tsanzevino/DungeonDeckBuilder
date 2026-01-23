@@ -454,6 +454,7 @@ texture = ExtResource("1_tudc2")
 2:15/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tudc2")
 
 [resource]
+tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Ground"

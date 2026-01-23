@@ -6,14 +6,14 @@ var deck : Deck
 
 func setup(d : Deck):
 	deck = d
+	deck.deck_changed.connect(update_display)
 	for n in deck.handSize:
 		var cardUI := CardUserInterface.new(deck.hand[n])
 		%Cards.add_child(cardUI)
 	@warning_ignore("integer_division")
 	selectedCard = deck.handSize / 2
 	%Cards.get_child(selectedCard).select_card()
-	update_stock()
-	update_discard()
+	update_display()
 
 func _process(_delta: float) -> void:
 	# Check swap
@@ -21,7 +21,6 @@ func _process(_delta: float) -> void:
 		swapCard = selectedCard
 	if Input.is_action_just_released("swap_card") and selectedCard != swapCard:
 		deck.swap_cards(swapCard, selectedCard)
-		update_hand()
 	# Check select
 	if Input.is_action_just_pressed("select_first_card"):
 		select_card(0)
@@ -43,6 +42,8 @@ func select_card(index : int):
 
 func play_card():
 	deck.play_card(selectedCard)
+
+func update_display():
 	update_hand()
 	update_discard()
 	update_stock()
