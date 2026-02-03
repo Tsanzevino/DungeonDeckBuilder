@@ -1,45 +1,50 @@
+@abstract
 class_name Room extends Node2D
+
+@export var doorScene : PackedScene = preload("res://Scenes/Door.tscn")
+@export var wallScene : PackedScene = preload("res://Scenes/Wall.tscn")
+@export var chestScene : PackedScene = preload("res://Scenes/Chest.tscn")
 
 var cell : Cell
 
+signal entered
+signal door_exited
+
 func _ready() -> void:
-	cell.opened.connect(open_doors)
-	cell.closed.connect(close_doors)
-	cell.add_chest.connect(add_chest)
-	cell.entered.connect(update)
-	open_doors()
+	assert(cell != null, "Cell must be assigned for Room to setup!")
+	add_walls()
+	add_doors()
+	setup()
+
+func add_walls():
+	if not cell.has_edge(Cell.Direction.NORTH): get_north_wall().add_child(wallScene.instantiate())
+	if not cell.has_edge(Cell.Direction.EAST): get_east_wall().add_child(wallScene.instantiate())
+	if not cell.has_edge(Cell.Direction.SOUTH): get_south_wall().add_child(wallScene.instantiate())
+	if not cell.has_edge(Cell.Direction.WEST): get_west_wall().add_child(wallScene.instantiate())
+
+func add_doors():
+	if cell.has_edge(Cell.Direction.NORTH): get_north_wall().add_child(doorScene.instantiate())
+	if cell.has_edge(Cell.Direction.EAST): get_east_wall().add_child(doorScene.instantiate())
+	if cell.has_edge(Cell.Direction.SOUTH): get_south_wall().add_child(doorScene.instantiate())
+	if cell.has_edge(Cell.Direction.WEST): get_west_wall().add_child(doorScene.instantiate())
+
+func lock_door(direction : Cell.Direction):
+	var wall : Node2D
+	match direction:
+		Cell.Direction.NORTH: wall = get_north_wall()
+		Cell.Direction.EAST: wall = get_east_wall()
+		Cell.Direction.SOUTH: wall = get_south_wall()
+		Cell.Direction.WEST: wall = get_west_wall()
+	(wall.find_children("*","Door")[0] as Door).lock_door()
 
 func add_chest():
-	add_child(preload("res://Scenes/Chest.tscn").instantiate())
+	get_chest_parent().add_child(chestScene.instantiate())
 
-func update():
-	if get_tree().get_first_node_in_group("Player").keys > 0 and cell.has_closed_doors():
-		print("opened door")
-		get_tree().get_first_node_in_group("Player").keys -= 1
-		cell._closed = 0
-		open_doors()
+## Room specific setup function. Used to build the room-specific aspects
+@abstract func setup()
 
-func open_doors() -> void:
-	if cell.has_edge(Cell.Direction.NORTH): %NorthWall.get_child(0).disabled = true
-	if cell.has_edge(Cell.Direction.EAST): %EastWall.get_child(0).disabled = true
-	if cell.has_edge(Cell.Direction.SOUTH): %SouthWall.get_child(0).disabled = true
-	if cell.has_edge(Cell.Direction.WEST): %WestWall.get_child(0).disabled = true
-
-func close_doors() -> void:
-	if not cell.is_open(Cell.Direction.NORTH): %NorthWall.get_child(0).disabled = false
-	if not cell.is_open(Cell.Direction.EAST): %EastWall.get_child(0).disabled = false
-	if not cell.is_open(Cell.Direction.SOUTH): %SouthWall.get_child(0).disabled = false
-	if not cell.is_open(Cell.Direction.WEST): %WestWall.get_child(0).disabled = false
-
-func open_door(direction : Cell.Direction) -> void:
-	if not cell.has_edge(direction): return
-	if direction == Cell.Direction.NORTH: %NorthWall.get_child(0).disabled = true
-	if direction == Cell.Direction.EAST: %EastWall.get_child(0).disabled = true
-	if direction == Cell.Direction.SOUTH: %SouthWall.get_child(0).disabled = true
-	if direction == Cell.Direction.WEST: %WestWall.get_child(0).disabled = true
-
-func close_door(direction : Cell.Direction) -> void:
-	if direction == Cell.Direction.NORTH: %NorthWall.get_child(0).disabled = false
-	if direction == Cell.Direction.EAST: %EastWall.get_child(0).disabled = false
-	if direction == Cell.Direction.SOUTH: %SouthWall.get_child(0).disabled = false
-	if direction == Cell.Direction.WEST: %WestWall.get_child(0).disabled = false
+@abstract func get_north_wall() -> Node2D
+@abstract func get_east_wall() -> Node2D
+@abstract func get_west_wall() -> Node2D
+@abstract func get_south_wall() -> Node2D
+@abstract func get_chest_parent() -> Node2D
