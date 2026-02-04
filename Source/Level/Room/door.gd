@@ -1,13 +1,13 @@
 class_name Door extends StaticBody2D
 
+const WALL_MASK : int = 0b0100
 const TRAPPED_MASK : int = 0b0010
 const LOCKED_MASK : int = 0b0001
 
 @export var trappedTexture : Texture2D
 @export var lockedTexture : Texture2D
 @export var openTexture : Texture2D
-@export var sprite : Sprite2D
-@export var sensor : Sensor
+@export var wallTexture : Texture2D
 
 ## Flags representing reasons the door cannot be opened.
 ## Trapped: All doors are trapped until enemies are defeated.
@@ -18,7 +18,13 @@ signal door_opened
 signal door_entered(entity : Entity)
 
 func _ready() -> void:
-	sensor.interacted.connect(_on_interacted)
+	collision_layer = 2
+	$Sensor.interacted.connect(_on_interacted)
+
+func make_wall():
+	openFlags = openFlags | WALL_MASK
+	$Sensor.queue_free()
+	update_texture()
 
 func lock_door(): 
 	openFlags = openFlags | LOCKED_MASK
@@ -39,14 +45,16 @@ func untrap_door():
 	if door_is_open(): open_door()
 
 func door_is_open() -> bool:
-	return openFlags
+	return not openFlags
 
 func open_door():
 	door_opened.emit()
-	(find_children("*","CollisionShape2D")[0] as CollisionShape2D).set_deferred("disabled", true)
 
 func _on_interacted(entity : Entity):
-	if openFlags & TRAPPED_MASK: 
+	if openFlags & WALL_MASK:
+		DebugLogger.info("This is a wall, not a door")
+		return
+	elif openFlags & TRAPPED_MASK: 
 		DebugLogger.info("Cannot enter door, it is trapped shut")
 		return
 	elif openFlags & LOCKED_MASK: 
@@ -59,9 +67,10 @@ func _on_interacted(entity : Entity):
 	else: 
 		DebugLogger.info("Entered Door!")
 		door_entered.emit(entity)
-		
+
 
 func update_texture():
-	if openFlags & TRAPPED_MASK: sprite.texture = trappedTexture
-	elif openFlags & LOCKED_MASK: sprite.texture = lockedTexture
-	else: sprite.texture = openTexture
+	if openFlags & WALL_MASK: $Sprite2D.texture = wallTexture
+	elif openFlags & TRAPPED_MASK: $Sprite2D.texture = trappedTexture
+	elif openFlags & LOCKED_MASK: $Sprite2D.texture = lockedTexture
+	else: $Sprite2D.texture = openTexture

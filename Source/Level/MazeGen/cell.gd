@@ -45,3 +45,19 @@ func _to_string() -> String:
 		Direction.NOT_EAST: return "\u252b"
 		Direction.ALL: return "\u254b"
 		_: return ""
+
+static func vector_to_direction(vector : Vector2) -> Direction:
+	match vector:
+		Vector2.UP: return Direction.NORTH
+		Vector2.DOWN: return Direction.SOUTH
+		Vector2.LEFT: return Direction.WEST
+		Vector2.RIGHT: return Direction.EAST
+		_: return Direction.NONE
+
+static func direction_to_vector(direction : Direction) -> Vector2i:
+	match direction:
+		Direction.NORTH: return Vector2i.UP
+		Direction.SOUTH: return Vector2i.DOWN
+		Direction.WEST: return Vector2i.LEFT 
+		Direction.EAST: return Vector2i.RIGHT
+		_: return Vector2i.ZERO
