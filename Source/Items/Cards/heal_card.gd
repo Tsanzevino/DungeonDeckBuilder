@@ -24,11 +24,11 @@ func _all_conditions_satisfied(entity : Entity) -> bool:
 func _perform_action(entity : Entity) -> void:
 	match type:
 		Type.PERCENTAGE_INCREASE:
-			entity.health.heal(healAmount * entity.health.maxHealth)
+			entity.health.heal(healAmount * entity.health.maxHealth.value)
 		Type.FLAT_INCREASE:
 			entity.health.heal(healAmount)
 		Type.PERCENT_SET:
-			entity.health.health = healAmount * entity.health.maxHealth
+			entity.health.health = healAmount * entity.health.maxHealth.value
 		Type.FLAT_SET:
 			entity.health.health = healAmount
 		

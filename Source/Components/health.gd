@@ -2,15 +2,14 @@
 class_name Health extends Node
 
 ## The maximum health. Health cannot go over this value.
-@export var maxHealth : float
-
+@export var maxHealth : Stat = Stat.new(0)
 ## The current health of the entity.
-@onready var health : float = maxHealth :
+@onready var health : float = maxHealth.value :
 	set(value):
-		health = clampf(value, 0, maxHealth)
+		health = clampf(value, 0, maxHealth.value)
 		health_changed.emit()
 		if health == 0: no_heath.emit()
-		if health == maxHealth: max_health.emit()
+		if health == maxHealth.value: max_health.emit()
 		DebugLogger.info("%s is at %3.1f health" % [get_parent().name, health])
 
 ## A signal emitted when it reaches max health, or when health is modified and clamped to max health.

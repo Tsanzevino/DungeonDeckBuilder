@@ -62,7 +62,6 @@ metadata/_custom_type_script = "uid://b04084yg56be0"
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("9_glx4g")
-maxHealth = 10.0
 metadata/_custom_type_script = "uid://dp4w212aij0sp"
 
 [node name="Hurtbox" type="Area2D" parent="."]
