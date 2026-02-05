@@ -1,12 +1,19 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://tn1ky87j6fst"]
+[gd_resource type="Resource" script_class="Attack" load_steps=5 format=3 uid="uid://tn1ky87j6fst"]
 
 [ext_resource type="Script" uid="uid://brujh7cqm7c1g" path="res://Source/Attacks/attack.gd" id="1_bugit"]
+[ext_resource type="Script" uid="uid://mevmwkvjs67b" path="res://Source/Items/Cards/Effects/stat.gd" id="1_g17se"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47hmh"]
 radius = 64.0
 
+[sub_resource type="Resource" id="Resource_g17se"]
+script = ExtResource("1_g17se")
+value = 1.0
+metadata/_custom_type_script = "uid://mevmwkvjs67b"
+
 [resource]
 script = ExtResource("1_bugit")
+damage = SubResource("Resource_g17se")
 offset = Vector2(0, -32)
 aoe = SubResource("CircleShape2D_47hmh")
 metadata/_custom_type_script = "uid://brujh7cqm7c1g"

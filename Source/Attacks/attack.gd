@@ -9,7 +9,6 @@ enum Target{
 	}
 
 @export var damage : Stat = Stat.new(1.0) ## How much damage the attack deals.
-
 @export var duration : Stat = Stat.new(0.1) ## How long the attack will last.
 @export var windup : Stat = Stat.new(0.1) ## The time it takes to start the attack after initiating it.
 @export var offset : Vector2 = Vector2.ZERO ## The offset from the user when attacking.

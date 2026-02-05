@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="AttackBuffCard" load_steps=8 format=3 uid="uid://c13ri1veh8ref"]
+
+[ext_resource type="Script" uid="uid://b4lvxlo1gcwag" path="res://Source/Items/Cards/Effects/buff.gd" id="1_ka8eg"]
+[ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Conditions/condition.gd" id="2_1e8tr"]
+[ext_resource type="Resource" uid="uid://c8tw01k8iwp12" path="res://Data/Items/Cards/Effects/double.tres" id="2_7lrnm"]
+[ext_resource type="Script" uid="uid://otpc4djsy0j1" path="res://Source/Items/Cards/attack_buff_card.gd" id="3_7lrnm"]
+[ext_resource type="Texture2D" uid="uid://cdsarnaoehwwt" path="res://icon.svg" id="4_fsloy"]
+[ext_resource type="Script" uid="uid://812qac62qivh" path="res://Source/Conditions/tag_condition.gd" id="5_7lrnm"]
+
+[sub_resource type="Resource" id="Resource_fsloy"]
+script = ExtResource("5_7lrnm")
+tags = Array[int]([3])
+metadata/_custom_type_script = "uid://812qac62qivh"
+
+[resource]
+script = ExtResource("3_7lrnm")
+buffEffects = Array[ExtResource("1_ka8eg")]([ExtResource("2_7lrnm")])
+tagCondition = SubResource("Resource_fsloy")
+manaCost = 30.0
+name = "Adrenaline"
+description = "Doubles your attack damage on melee in your hand."
+displayImage = ExtResource("4_fsloy")
+tags = Array[int]([4])
+metadata/_custom_type_script = "uid://otpc4djsy0j1"

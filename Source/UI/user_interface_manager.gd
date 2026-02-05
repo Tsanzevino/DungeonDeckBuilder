@@ -6,9 +6,9 @@ var deck : Deck
 
 func setup(m : Mana, h : Health, d : Deck):
 	mana = m
-	%Mana.max_value = mana.maxMana
+	%Mana.max_value = mana.maxMana.value
 	health = h
-	%Health.max_value = health.maxHealth
+	%Health.max_value = health.maxHealth.value
 	deck = d
 	%DeckUserInterface.setup(deck)
 	mana.not_enough_mana.connect(on_not_enough_mana)

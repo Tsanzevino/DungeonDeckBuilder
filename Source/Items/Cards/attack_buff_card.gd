@@ -1,10 +1,8 @@
 ## A Card that applies effects to certain target cards.
-class_name BuffCard extends Card
+class_name AttackBuffCard extends Card
 
 ## The effects to add to the target cards.
-@export var boostEffects : Array[Buff]
-## The positions of the target cards.
-@export var targetPosition : Deck.Position = Deck.Position.HAND
+@export var buffEffects : Array[Buff]
 ## The types of cards being targetted.
 @export var tagCondition : TagCondition
 
@@ -14,7 +12,7 @@ func _all_conditions_satisfied(entity : Entity) -> bool:
 
 ## Applies the effects to the cards in the target position that have the specified tags.
 func _perform_action(entity : Entity) -> void:
-	for card in entity.deck.get_cards(targetPosition):
+	for card in entity.deck.get_cards(tagCondition.target):
 		if not ((card is AttackCard) and tagCondition.test_card(card)): continue
-		for effect in boostEffects:
-			effect.apply(1)
+		for effect in buffEffects:
+			(card as AttackCard).attack.damage.add_effect(effect)

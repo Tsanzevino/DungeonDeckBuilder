@@ -6,7 +6,8 @@ class_name Stat extends Resource
 		var i : int = 0
 		while i < _effects.size():
 			var effect := _effects[i]
-			if effect.is_expired(): _effects.pop_at(i)
+			if effect.is_expired(): 
+				_effects.pop_at(i)
 			else:
 				effectedValue = effect.apply(effectedValue)
 				i += 1
@@ -14,7 +15,7 @@ class_name Stat extends Resource
 
 var _effects : Array[Effect]
 
-func _init(n : float) -> void:
+func _init(n : float = 0) -> void:
 	value = n
 	_effects = []
 

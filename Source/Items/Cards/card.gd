@@ -41,5 +41,4 @@ func _consume_mana(entity : Entity) -> bool:
 	return entity.mana.consume(manaCost)
 
 ## Performs the cards actions. Only gets run if the conditions pass and there is enough mana.
-@abstract 
-func _perform_action(entity : Entity) -> void
+@abstract func _perform_action(entity : Entity) -> void

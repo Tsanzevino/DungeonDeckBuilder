@@ -2,7 +2,7 @@
 class_name Health extends Node
 
 ## The maximum health. Health cannot go over this value.
-@export var maxHealth : Stat = Stat.new(0)
+@export var maxHealth : Stat = Stat.new(10)
 ## The current health of the entity.
 @onready var health : float = maxHealth.value :
 	set(value):

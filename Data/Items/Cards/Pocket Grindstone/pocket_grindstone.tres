@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="BoostCard" load_steps=8 format=3 uid="uid://bx0h38v0k10kh"]
+[gd_resource type="Resource" script_class="AttackBuffCard" load_steps=8 format=3 uid="uid://bx0h38v0k10kh"]
 
 [ext_resource type="Script" uid="uid://djt3haa3jnyrf" path="res://Source/Conditions/condition.gd" id="1_j036u"]
-[ext_resource type="Script" uid="uid://bpa6plooxrdvu" path="res://Source/Items/Cards/Effects/use_buff.gd" id="1_khnx8"]
-[ext_resource type="Resource" uid="uid://ccsfrg1tf5bu" path="res://Data/Items/Cards/Effects/double.tres" id="2_jcdku"]
+[ext_resource type="Script" uid="uid://b4lvxlo1gcwag" path="res://Source/Items/Cards/Effects/buff.gd" id="1_xs813"]
+[ext_resource type="Resource" uid="uid://cmo3pchf02gtk" path="res://Data/Items/Cards/Effects/plus_one.tres" id="2_6qui3"]
 [ext_resource type="Script" uid="uid://812qac62qivh" path="res://Source/Conditions/tag_condition.gd" id="2_khnx8"]
-[ext_resource type="Script" uid="uid://otpc4djsy0j1" path="res://Source/Items/Cards/buff_card.gd" id="2_mhe0k"]
+[ext_resource type="Script" uid="uid://otpc4djsy0j1" path="res://Source/Items/Cards/attack_buff_card.gd" id="2_mhe0k"]
 [ext_resource type="Texture2D" uid="uid://cydfrnwts5cbl" path="res://Data/Items/Cards/Pocket Grindstone/pocket_grindstone.png" id="4_khnx8"]
 
 [sub_resource type="Resource" id="Resource_khnx8"]
@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://812qac62qivh"
 
 [resource]
 script = ExtResource("2_mhe0k")
-boostEffects = Array[ExtResource("1_khnx8")]([ExtResource("2_jcdku")])
+buffEffects = Array[ExtResource("1_xs813")]([ExtResource("2_6qui3")])
 tagCondition = SubResource("Resource_khnx8")
 manaCost = 20.0
 name = "Pocket Grindstone"

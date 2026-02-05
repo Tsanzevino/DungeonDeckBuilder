@@ -7,6 +7,7 @@ signal attack_finished
 ## The attack being performed by the hitbox.
 @export var attack : Attack
 
+var damage : float
 ## Creates a hitbox from a new attack.
 func _init(newAttack : Attack = attack) -> void:
 	attack = newAttack.duplicate(true)
@@ -23,7 +24,7 @@ func _ready() -> void:
 	add_child(cs)
 	# This determines if the attack should be connected to the player or not.
 	top_level = attack.topLevel
-	
+	damage = attack.damage.value
 	if top_level:
 		# Top level requires the position to be transformed to put it in the right place.
 		position = get_parent().global_position + attack.offset.rotated(get_parent().rotation)
@@ -50,3 +51,6 @@ func windup_finished(cs : CollisionShape2D):
 func duration_finished():
 	attack_finished.emit()
 	queue_free()
+
+func get_damage() -> float:
+	return damage
