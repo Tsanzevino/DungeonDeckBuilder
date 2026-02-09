@@ -7,7 +7,6 @@ enum Type{ADD,MULTIPLY,DIVIDE}
 @export var buffType : Type = Type.MULTIPLY
 
 func apply(value : float) -> float:
-	update_expiration()
 	match buffType:
 		Type.ADD: return value + buffAmount
 		Type.MULTIPLY: return value * buffAmount

@@ -15,4 +15,6 @@ func _perform_action(entity : Entity) -> void:
 	for card in entity.deck.get_cards(tagCondition.target):
 		if not ((card is AttackCard) and tagCondition.test_card(card)): continue
 		for effect in buffEffects:
-			(card as AttackCard).attack.damage.add_effect(effect)
+			var newEffect : Effect = effect.duplicate()
+			(card as AttackCard).attack.damage.add_effect(newEffect)
+			entity.attack_finished.connect(newEffect.update_expiration)

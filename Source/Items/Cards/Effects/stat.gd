@@ -20,4 +20,4 @@ func _init(n : float = 0) -> void:
 	_effects = []
 
 func add_effect(effect : Effect):
-	_effects.push_back(effect.duplicate())
+	_effects.push_back(effect)
