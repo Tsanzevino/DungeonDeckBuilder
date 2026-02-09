@@ -2,50 +2,29 @@ class_name Cell extends Object
 
 enum Direction{NONE, WEST, SOUTH, SOUTH_WEST, EAST, WEST_EAST, SOUTH_EAST, NOT_NORTH, NORTH, NORTH_WEST, NORTH_SOUTH, NOT_EAST, NORTH_EAST, NOT_SOUTH, NOT_WEST, ALL}
 
+const EDGE_MASK = 0b1111
 var edges : int = 0
-var _closed : int = 0
-var mask : int = 0b1111
-signal opened
-signal closed
-@warning_ignore("unused_signal")
-signal add_chest
-@warning_ignore("unused_signal")
-signal entered
 
 func _init(direction : Direction = Direction.NONE) -> void:
 	set_edges(direction)
 
 func has_edge(direction : Direction) -> bool:
-	return direction & edges == direction
+	return (direction & edges) & EDGE_MASK == direction & EDGE_MASK
 
 func set_edges(direction : Direction) -> void:
-	edges = direction
+	edges = direction & EDGE_MASK
 
 func add_edges(direction : Direction) -> void:
-	edges = edges | direction
-
-func close(direction : Direction) -> void:
-	_closed = _closed | direction
-	closed.emit()
-
-func open(direction : Direction) -> void:
-	_closed = _closed & (~direction & mask)
-	opened.emit()
-
-func is_open(direction : Direction) -> bool:
-	return (direction & ~_closed & mask) == direction
+	edges = (edges & EDGE_MASK) | (direction & EDGE_MASK)
 
 func rotate_clockwise() -> void:
-	edges = (edges & 0b1110) >> 1 | (edges & 0b0001) << 3
+	edges = (edges & Direction.NOT_WEST) >> 1 | (edges & Direction.WEST) << 3
 
 func rotate_counter_clockwise() -> void:
-	edges = (edges & 0b0111) << 1 | (edges & 0b1000) >> 3
+	edges = (edges & Direction.NOT_NORTH) << 1 | (edges & Direction.NORTH) >> 3
 
 func count_edges() -> int:
 	return int(has_edge(Direction.NORTH)) + int(has_edge(Direction.EAST)) + int(has_edge(Direction.SOUTH)) + int(has_edge(Direction.WEST))
-
-func has_closed_doors() -> bool:
-	return _closed != 0
 
 func _to_string() -> String:
 	match edges:
@@ -66,3 +45,19 @@ func _to_string() -> String:
 		Direction.NOT_EAST: return "\u252b"
 		Direction.ALL: return "\u254b"
 		_: return ""
+
+static func vector_to_direction(vector : Vector2) -> Direction:
+	match vector:
+		Vector2.UP: return Direction.NORTH
+		Vector2.DOWN: return Direction.SOUTH
+		Vector2.LEFT: return Direction.WEST
+		Vector2.RIGHT: return Direction.EAST
+		_: return Direction.NONE
+
+static func direction_to_vector(direction : Direction) -> Vector2i:
+	match direction:
+		Direction.NORTH: return Vector2i.UP
+		Direction.SOUTH: return Vector2i.DOWN
+		Direction.WEST: return Vector2i.LEFT 
+		Direction.EAST: return Vector2i.RIGHT
+		_: return Vector2i.ZERO
