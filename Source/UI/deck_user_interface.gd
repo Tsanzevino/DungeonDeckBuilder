@@ -13,6 +13,7 @@ func setup(d : Deck):
 	@warning_ignore("integer_division")
 	selectedCard = deck.handSize / 2
 	%Cards.get_child(selectedCard).select_card()
+	%SelectedCard.text = deck.hand[selectedCard].name
 	update_display()
 
 func _process(_delta: float) -> void:
@@ -39,6 +40,7 @@ func select_card(index : int):
 	%Cards.get_child(index).select_card()
 	selectedCard = index
 	DebugLogger.info("Selected card #%s: %s" % [index + 1, deck.hand[selectedCard].name])
+	%SelectedCard.text = deck.hand[selectedCard].name
 
 func play_card():
 	deck.play_card(selectedCard)

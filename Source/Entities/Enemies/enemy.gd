@@ -1,6 +1,7 @@
 class_name Enemy extends Entity
 
 func on_no_health() -> void:
+	died.emit()
 	queue_free()
 
 func player_spotted() -> bool:

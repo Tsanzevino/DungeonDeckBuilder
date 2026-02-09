@@ -1,0 +1,162 @@
+[gd_scene load_steps=19 format=3 uid="uid://giryhviylb15"]
+
+[ext_resource type="Script" uid="uid://p72tkg2xxmdm" path="res://Source/Level/Room/default_room.gd" id="1_4ncaa"]
+[ext_resource type="PackedScene" uid="uid://ch1oj5k5cck5f" path="res://Scenes/Door.tscn" id="2_j18ic"]
+[ext_resource type="PackedScene" uid="uid://fvdy78a8w0s0" path="res://Scenes/Enemy.tscn" id="5_h3rny"]
+
+[sub_resource type="Gradient" id="Gradient_j464w"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5hpqs"]
+gradient = SubResource("Gradient_j464w")
+width = 2048
+height = 1152
+fill_from = Vector2(0, 1)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cutjs"]
+vertices = PackedVector2Array(1014, 566, -1014, 566, -1014, -566, 1014, -566)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1024, -576, 1024, -576, 1024, 576, -1024, 576)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ncaa"]
+size = Vector2(1040, 64)
+
+[sub_resource type="Gradient" id="Gradient_aaq88"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.43134022, 0.43134025, 0.43134025, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7gm67"]
+gradient = SubResource("Gradient_aaq88")
+width = 1040
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j18ic"]
+size = Vector2(1040, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v75a0"]
+size = Vector2(1040, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k65ql"]
+size = Vector2(1040, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chbct"]
+size = Vector2(528, 64)
+
+[sub_resource type="Gradient" id="Gradient_a2si3"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.40069774, 0.40069774, 0.40069768, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aaq88"]
+gradient = SubResource("Gradient_a2si3")
+width = 544
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3rny"]
+size = Vector2(528, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72uo1"]
+size = Vector2(528, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cutjs"]
+size = Vector2(528, 64)
+
+[node name="Room" type="Node2D"]
+z_index = -1
+script = ExtResource("1_4ncaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = SubResource("GradientTexture2D_5hpqs")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_cutjs")
+
+[node name="NorthWall" type="StaticBody2D" parent="."]
+position = Vector2(0, -608)
+
+[node name="NorthDoor" parent="NorthWall" instance=ExtResource("2_j18ic")]
+unique_name_in_owner = true
+
+[node name="Left" type="CollisionShape2D" parent="NorthWall"]
+position = Vector2(-568, 0)
+shape = SubResource("RectangleShape2D_4ncaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="NorthWall/Left"]
+texture = SubResource("GradientTexture2D_7gm67")
+
+[node name="Right" type="CollisionShape2D" parent="NorthWall"]
+position = Vector2(568, 0)
+shape = SubResource("RectangleShape2D_j18ic")
+
+[node name="Sprite2D" type="Sprite2D" parent="NorthWall/Right"]
+texture = SubResource("GradientTexture2D_7gm67")
+
+[node name="SouthWall" type="StaticBody2D" parent="."]
+position = Vector2(0, 608)
+
+[node name="SouthDoor" parent="SouthWall" instance=ExtResource("2_j18ic")]
+unique_name_in_owner = true
+
+[node name="Left" type="CollisionShape2D" parent="SouthWall"]
+position = Vector2(-568, 0)
+shape = SubResource("RectangleShape2D_v75a0")
+
+[node name="Sprite2D" type="Sprite2D" parent="SouthWall/Left"]
+texture = SubResource("GradientTexture2D_7gm67")
+
+[node name="Right" type="CollisionShape2D" parent="SouthWall"]
+position = Vector2(568, 0)
+shape = SubResource("RectangleShape2D_k65ql")
+
+[node name="Sprite2D" type="Sprite2D" parent="SouthWall/Right"]
+texture = SubResource("GradientTexture2D_7gm67")
+
+[node name="WestWall" type="StaticBody2D" parent="."]
+position = Vector2(-1056, 0)
+rotation = 1.5707964
+
+[node name="WestDoor" parent="WestWall" instance=ExtResource("2_j18ic")]
+unique_name_in_owner = true
+
+[node name="Left" type="CollisionShape2D" parent="WestWall"]
+position = Vector2(-312, 0)
+shape = SubResource("RectangleShape2D_chbct")
+
+[node name="Sprite2D" type="Sprite2D" parent="WestWall/Left"]
+texture = SubResource("GradientTexture2D_aaq88")
+
+[node name="Right" type="CollisionShape2D" parent="WestWall"]
+position = Vector2(312, 0)
+shape = SubResource("RectangleShape2D_h3rny")
+
+[node name="Sprite2D2" type="Sprite2D" parent="WestWall/Right"]
+texture = SubResource("GradientTexture2D_aaq88")
+
+[node name="EastWall" type="StaticBody2D" parent="."]
+position = Vector2(1056, 0)
+rotation = 1.5707964
+
+[node name="EastDoor" parent="EastWall" instance=ExtResource("2_j18ic")]
+unique_name_in_owner = true
+
+[node name="Left" type="CollisionShape2D" parent="EastWall"]
+position = Vector2(-312, 0)
+shape = SubResource("RectangleShape2D_72uo1")
+
+[node name="Sprite2D" type="Sprite2D" parent="EastWall/Left"]
+texture = SubResource("GradientTexture2D_aaq88")
+
+[node name="Right" type="CollisionShape2D" parent="EastWall"]
+position = Vector2(312, 0)
+shape = SubResource("RectangleShape2D_cutjs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="EastWall/Right"]
+texture = SubResource("GradientTexture2D_aaq88")
+
+[node name="Enemies" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("5_h3rny")]
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("5_h3rny")]
+position = Vector2(96, 64)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("5_h3rny")]
+position = Vector2(-96, 64)

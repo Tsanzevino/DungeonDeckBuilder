@@ -1,6 +1,7 @@
 class_name Level extends Node2D
 
-var roomScene := preload("res://Scenes/Room.tscn")
+var roomScenes : Array = [preload("res://Scenes/Room.tscn"),preload("res://Scenes/Room_Two.tscn")]
+
 var dimensions : Vector2i
 var rooms : Array[Array]
 var solution : Array[Vector2i]
@@ -20,7 +21,7 @@ func load_rooms(grid : Grid):
 	for x in dimensions.x:
 		rooms[x].resize(dimensions.y)
 		for y in dimensions.y:
-			var newRoom : Room = roomScene.instantiate()
+			var newRoom : Room = roomScenes[randi() % roomScenes.size()].instantiate()
 			newRoom.cell = grid.get_cell(Vector2i(x,y))
 			newRoom.level = self
 			rooms[x][y] = newRoom

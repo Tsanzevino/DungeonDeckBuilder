@@ -1,6 +1,5 @@
 class_name Entity extends CharacterBody2D
 
-
 @export var deck : Deck
 @export var mana : Mana
 @export var health : Health
@@ -14,6 +13,7 @@ signal attack_finished
 signal died
 
 func _ready() -> void:
+	deck = deck.duplicate_deep()
 	deck.setup(self)
 	hurtbox.hurt.connect(health.damage)
 	health.no_heath.connect(on_no_health)

@@ -23,6 +23,7 @@ metadata/_custom_type_script = "uid://mevmwkvjs67b"
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mana", "health", "hurtbox", "pivot") groups=["Enemy"]]
 collision_layer = 8
+collision_mask = 11
 script = ExtResource("1_wovta")
 deck = ExtResource("2_esfq3")
 mana = NodePath("Mana")
@@ -103,3 +104,5 @@ metadata/_custom_type_script = "uid://do222lj53766q"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
