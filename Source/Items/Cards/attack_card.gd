@@ -22,4 +22,4 @@ func _start_attack(entity : Entity):
 
 ## Takes the player out of the attacking state when the attack is finished
 func _on_attack_finished(entity : Entity):
-	entity.attacking = false
+	entity.finish_attack()

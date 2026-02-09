@@ -1,14 +1,32 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://ct6mg4mc06ya8"]
+[gd_resource type="Resource" script_class="Attack" load_steps=7 format=3 uid="uid://ct6mg4mc06ya8"]
 
 [ext_resource type="Script" uid="uid://brujh7cqm7c1g" path="res://Source/Attacks/attack.gd" id="1_n0sya"]
+[ext_resource type="Script" uid="uid://mevmwkvjs67b" path="res://Source/Items/Cards/Effects/stat.gd" id="1_sofcn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sofcn"]
 radius = 16.0
 height = 128.0
 
+[sub_resource type="Resource" id="Resource_mhjnj"]
+script = ExtResource("1_sofcn")
+value = 1.0
+metadata/_custom_type_script = "uid://mevmwkvjs67b"
+
+[sub_resource type="Resource" id="Resource_qon0w"]
+script = ExtResource("1_sofcn")
+value = 0.3
+metadata/_custom_type_script = "uid://mevmwkvjs67b"
+
+[sub_resource type="Resource" id="Resource_4b6l8"]
+script = ExtResource("1_sofcn")
+value = 0.2
+metadata/_custom_type_script = "uid://mevmwkvjs67b"
+
 [resource]
 script = ExtResource("1_n0sya")
-windup = 0.4
+damage = SubResource("Resource_mhjnj")
+duration = SubResource("Resource_qon0w")
+windup = SubResource("Resource_4b6l8")
 offset = Vector2(0, -60)
 aoe = SubResource("CapsuleShape2D_sofcn")
 metadata/_custom_type_script = "uid://brujh7cqm7c1g"

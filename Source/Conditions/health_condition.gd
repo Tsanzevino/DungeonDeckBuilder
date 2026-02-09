@@ -23,10 +23,10 @@ func _test(entity : Entity) -> bool:
 		Type.TOTAL_LOST:
 			return currentHealth <= value
 		Type.PERCENTAGE_LEFT:
-			var percentHealth = currentHealth / entity.health.maxHealth
+			var percentHealth = currentHealth / entity.health.maxHealth.value
 			return percentHealth >= value
 		Type.PERCENTAGE_LOST:
-			var percentHealth = currentHealth / entity.health.maxHealth
+			var percentHealth = currentHealth / entity.health.maxHealth.value
 			return percentHealth <= value
 		_:
 			return false

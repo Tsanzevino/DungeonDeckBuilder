@@ -1,14 +1,19 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://c6v3eob68okdc"]
+[gd_resource type="Resource" script_class="Attack" load_steps=5 format=3 uid="uid://c6v3eob68okdc"]
 
 [ext_resource type="Script" uid="uid://brujh7cqm7c1g" path="res://Source/Attacks/attack.gd" id="1_54t8k"]
+[ext_resource type="Script" uid="uid://mevmwkvjs67b" path="res://Source/Items/Cards/Effects/stat.gd" id="1_hsx8c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hsx8c"]
 radius = 40.0
 
+[sub_resource type="Resource" id="Resource_ep8oi"]
+script = ExtResource("1_hsx8c")
+value = 5.0
+metadata/_custom_type_script = "uid://mevmwkvjs67b"
+
 [resource]
 script = ExtResource("1_54t8k")
-damage = 3.0
-windup = 0.5
+damage = SubResource("Resource_ep8oi")
 movement = Vector2(0, -200)
 aoe = SubResource("CircleShape2D_hsx8c")
 topLevel = true

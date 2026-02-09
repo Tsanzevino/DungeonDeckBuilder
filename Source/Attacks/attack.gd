@@ -8,9 +8,9 @@ enum Target{
 	EVERYONE ## No one is safe >:)
 	}
 
-@export var damage : float = 1.0 ## How much damage the attack deals.
-@export var duration : float = 0.1 ## How long the attack will last.
-@export var windup : float = 0.1 ## The time it takes to start the attack after initiating it.
+@export var damage : Stat = Stat.new(1.0) ## How much damage the attack deals.
+@export var duration : Stat = Stat.new(0.1) ## How long the attack will last.
+@export var windup : Stat = Stat.new(0.1) ## The time it takes to start the attack after initiating it.
 @export var offset : Vector2 = Vector2.ZERO ## The offset from the user when attacking.
 @export var movement : Vector2 = Vector2.ZERO ## The movement vector traveled each second.
 @export var aoe : Shape2D ## The hitboxes shape, A.K.A. the area of effect.

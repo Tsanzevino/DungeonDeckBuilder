@@ -1,18 +1,17 @@
 class_name Mana extends Node
 
 ## The maximum mana that can be stored.
-@export var maxMana : float = 100.0
+@export var maxMana : Stat = Stat.new(100.0)
 ## The cooldown time before mana begins to recharge after use.
-@export var manaChargeCooldown : float = 1.0
+@export var manaChargeCooldown : Stat = Stat.new(1.0)
 ## The constant rate that mana recharges at.
-@export var manaChargeSpeed : float = 10
+@export var manaChargeSpeed : Stat = Stat.new(10.0)
 ## The proportion of total mana that gets re-attributed every second.
 ## This effectively makes mana recharge faster near the top, 
 ## discouraging full mana expenditure. If negative, then mana will never reach the top.
-@export var manaAccRate : float = 0.5
+@export var manaAccRate : Stat = Stat.new(0.5)
 
-## The current mana value.
-@onready var mana : float = maxMana
+@onready var mana : float = maxMana.value
 ## A timer for tracking the cooldown.
 var timer : float = 0.0
 
@@ -37,12 +36,12 @@ func can_consume(amount : float) -> bool:
 func _process(delta: float) -> void:
 	# Increases the timer and checks if mana can be regenerated.
 	timer += delta
-	if mana == maxMana or timer < manaChargeCooldown: return
+	if mana == maxMana.value or timer < manaChargeCooldown.value: return
 	# Increases the mana per second by a flat rate + the current mana * an acceleration rate.
-	mana += (manaChargeSpeed + mana * manaAccRate) * delta
+	mana += (manaChargeSpeed.value + mana * manaAccRate.value) * delta
 	# Clamps the mana to max mana and sends out a signal.
-	if mana >= maxMana:
-		mana = maxMana
+	if mana >= maxMana.value:
+		mana = maxMana.value
 		DebugLogger.info("Mana Full")
 		max_mana.emit()
 

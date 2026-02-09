@@ -7,8 +7,11 @@ class_name Entity extends CharacterBody2D
 @export var hurtbox : Hurtbox
 @export var pivot : Node2D
 
+
 var attacking : bool = false
 var keys : int = 0
+signal attack_finished
+signal died
 
 func _ready() -> void:
 	deck.setup(self)
@@ -28,10 +31,14 @@ func collect_item(item : Item):
 		deck.add_card(item)
 
 func on_no_health():
-	pass
+	died.emit()
 
 func on_max_health():
 	pass
 
 func on_max_mana():
 	pass
+
+func finish_attack():
+	attacking = false
+	attack_finished.emit()

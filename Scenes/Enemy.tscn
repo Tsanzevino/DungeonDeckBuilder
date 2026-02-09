@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://fvdy78a8w0s0"]
+[gd_scene load_steps=17 format=3 uid="uid://fvdy78a8w0s0"]
 
 [ext_resource type="Texture2D" uid="uid://cdsarnaoehwwt" path="res://icon.svg" id="1_m1htj"]
 [ext_resource type="Script" uid="uid://bqwnq55bti0xx" path="res://Source/Entities/Enemies/enemy.gd" id="1_wovta"]
@@ -8,12 +8,18 @@
 [ext_resource type="Script" uid="uid://dlt1yokcom10t" path="res://Source/Entities/Enemies/StateMachine/idle.gd" id="4_uoxpr"]
 [ext_resource type="Script" uid="uid://bvqqkiayt74ow" path="res://Source/Entities/Enemies/StateMachine/chasing.gd" id="5_idouy"]
 [ext_resource type="Script" uid="uid://dwu5by0ml7jn1" path="res://Source/Entities/Enemies/StateMachine/fleeing.gd" id="6_0o0ue"]
+[ext_resource type="Script" uid="uid://mevmwkvjs67b" path="res://Source/Items/Cards/Effects/stat.gd" id="6_qlal6"]
 [ext_resource type="Script" uid="uid://bgse36nhnlkks" path="res://Source/Entities/Enemies/StateMachine/attacking.gd" id="7_6s1gy"]
 [ext_resource type="Script" uid="uid://do222lj53766q" path="res://Source/Components/player_detector.gd" id="8_uoxpr"]
 [ext_resource type="Script" uid="uid://dp4w212aij0sp" path="res://Source/Components/health.gd" id="9_idouy"]
 [ext_resource type="Script" uid="uid://bcceqc2f8hmnr" path="res://Source/Components/hurtbox.gd" id="11_6s1gy"]
 [ext_resource type="PackedScene" uid="uid://lafu1rogyp0n" path="res://Scenes/HealthDisplay.tscn" id="13_27ry8"]
 [ext_resource type="Script" uid="uid://b04084yg56be0" path="res://Source/Components/mana.gd" id="14_qlal6"]
+
+[sub_resource type="Resource" id="Resource_dascy"]
+script = ExtResource("6_qlal6")
+value = 5.0
+metadata/_custom_type_script = "uid://mevmwkvjs67b"
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mana", "health", "hurtbox", "pivot") groups=["Enemy"]]
 collision_layer = 8
@@ -35,7 +41,7 @@ texture = ExtResource("1_m1htj")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("9_idouy")
-maxHealth = 5.0
+maxHealth = SubResource("Resource_dascy")
 metadata/_custom_type_script = "uid://dp4w212aij0sp"
 
 [node name="HealthDisplay" parent="." node_paths=PackedStringArray("health") instance=ExtResource("13_27ry8")]
@@ -45,7 +51,6 @@ health = NodePath("../Health")
 
 [node name="Mana" type="Node" parent="."]
 script = ExtResource("14_qlal6")
-maxMana = 25.0
 metadata/_custom_type_script = "uid://b04084yg56be0"
 
 [node name="Hurtbox" type="Area2D" parent="."]

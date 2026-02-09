@@ -23,4 +23,4 @@ func get_damage(hitbox : Hitbox, target : Attack.Target) -> float:
 		return 0
 	if target == Attack.Target.EXCLUDE_USER_TYPE and owner.collision_layer == hitbox.owner.collision_layer:
 		return 0
-	return hitbox.attack.damage
+	return hitbox.attack.damage.value

@@ -5,6 +5,7 @@ var sprintDuration : float = 0.0
 func _ready() -> void:
 	super()
 	%UserInterfaceManager.setup(mana, health, deck)
+	print(health.health)
 
 func add_sprint_duration(amount : float) -> void:
 	sprintDuration += amount

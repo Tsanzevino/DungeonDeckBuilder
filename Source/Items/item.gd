@@ -11,4 +11,4 @@ class_name Item extends Resource
 
 ## An enum for every kind of tag possible. 
 ## This avoids issues with strings such as misspellings, being similar but not identical, and being tedious.
-enum Tag{FIRE,WATER,SPELL,MELEE,BOOST,KEY}
+enum Tag{FIRE,WATER,SPELL,MELEE,BUFF,KEY}

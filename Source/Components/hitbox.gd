@@ -7,6 +7,7 @@ signal attack_finished
 ## The attack being performed by the hitbox.
 @export var attack : Attack
 
+var damage : float
 ## Creates a hitbox from a new attack.
 func _init(newAttack : Attack = attack) -> void:
 	attack = newAttack.duplicate(true)
@@ -23,7 +24,7 @@ func _ready() -> void:
 	add_child(cs)
 	# This determines if the attack should be connected to the player or not.
 	top_level = attack.topLevel
-	
+	damage = attack.damage.value
 	if top_level:
 		# Top level requires the position to be transformed to put it in the right place.
 		position = get_parent().global_position + attack.offset.rotated(get_parent().rotation)
@@ -33,7 +34,7 @@ func _ready() -> void:
 		# Otherwise, you can just apply offset as normal.
 		position = attack.offset
 	# Starts a timer for the windup and begins waiting.
-	var timer : SceneTreeTimer = get_tree().create_timer(attack.windup)
+	var timer : SceneTreeTimer = get_tree().create_timer(attack.windup.value)
 	timer.timeout.connect(windup_finished.bind(cs))
 
 ## Accounts for the attack movement.
@@ -43,10 +44,13 @@ func _physics_process(delta: float) -> void:
 ## Enables collision and ends the windup, Starting the timer for the attack.
 func windup_finished(cs : CollisionShape2D):
 	cs.set_deferred("disabled", false)
-	var timer : SceneTreeTimer = get_tree().create_timer(attack.duration)
+	var timer : SceneTreeTimer = get_tree().create_timer(attack.duration.value)
 	timer.timeout.connect(duration_finished)
 
 ## Closes out the attack by emitting attack_finished and deleting the hitbox.
 func duration_finished():
 	attack_finished.emit()
 	queue_free()
+
+func get_damage() -> float:
+	return damage
